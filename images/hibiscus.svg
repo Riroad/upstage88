@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="ハイビスカス">
+  <!-- 線画にしてある。ベタ塗りだと薄く敷いたとき塊に見えて花に読めないため。 -->
+  <g fill="none" stroke="#0fb5c4" stroke-width="3.2" stroke-linejoin="round">
+    <!-- 花びら5枚（中心100,100 を軸に72度ずつ回転） -->
+    <ellipse cx="100" cy="52" rx="29" ry="43"/>
+    <ellipse cx="100" cy="52" rx="29" ry="43" transform="rotate(72 100 100)"/>
+    <ellipse cx="100" cy="52" rx="29" ry="43" transform="rotate(144 100 100)"/>
+    <ellipse cx="100" cy="52" rx="29" ry="43" transform="rotate(216 100 100)"/>
+    <ellipse cx="100" cy="52" rx="29" ry="43" transform="rotate(288 100 100)"/>
+  </g>
+  <!-- 中心と雌しべ -->
+  <g fill="none" stroke="#e64c8b" stroke-width="3.2" stroke-linecap="round">
+    <circle cx="100" cy="100" r="13"/>
+    <path d="M107 93 L143 57"/>
+    <circle cx="147" cy="53" r="6"/>
+    <circle cx="134" cy="50" r="4"/>
+    <circle cx="150" cy="67" r="4"/>
+  </g>
+</svg>

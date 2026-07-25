@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>フィリピンクラブ Up Stage 88｜長野県駒ヶ根市のフィリピンパブ</title>
+<meta name="description" content="長野県駒ヶ根市のフィリピンクラブ「Up Stage 88（アップステージ ワロワロ）」。最大80名の大型店で本格ショータイムが1日3回。90分飲み放題 男性5,500円／女性3,300円（税・サービス料込）。カード利用可。明朗会計で初めてでも安心。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="フィリピンクラブ Up Stage 88">
+<meta property="og:title" content="フィリピンクラブ Up Stage 88｜長野県駒ヶ根市のフィリピンパブ">
+<meta property="og:description" content="熱く、美しい、フィリピンの夜を。駒ヶ根｜最大80名・ショータイム1日3回の大型フィリピンクラブ。">
+<meta property="og:url" content="https://riroad.github.io/upstage88/">
+<meta property="og:image" content="https://riroad.github.io/upstage88/images/hero-cast.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<!-- TODO: 公開時に削除 - 初稿確認用URLを検索結果に出さないため -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 黒→白。明暗の2面構成は保ったまま、暗い面を「淡いティールの面」に置き換える */
+  --ink:#ffffff;
+  --ink-2:#f7fbfd;
+  --ink-3:#e8f4f8;
+  --line:#d9e7ef;
+  /* 金の役割（小さいラベル・数字）をそのままティールに置き換える */
+  --gold:#0fb5c4;
+  --gold-l:#0e93a4;
+  --primary:#0fb5c4;
+  --primary-dark:#1e88e5;
+  --accent:#e64c8b;       /* ハイビスカスのピンク。差し色として少量だけ */
+  --paper:#f2fafc;        /* 面を変えるときの淡いティール */
+  --text:#16283c;
+  --text-weak:#5b6b7c;
+  --text-dark:#16283c;
+  --text-dark-weak:#5b6b7c;
+  --serif:"Shippori Mincho B1", serif;
+  --latin:"Cormorant Garamond", serif;
+  --sans:"Zen Kaku Gothic New", system-ui, sans-serif;
+  --maxw:1180px;
+  --header-h:92px;   /* ロゴを大きくしたぶんヘッダーも高くしている */
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+/* 固定ヘッダーの下にセクション見出しが隠れないよう、上余白の無いSNSにアンカー用の余白を確保 */
+#sns{scroll-margin-top:calc(var(--header-h) + 20px)}
+body{
+  margin:0;background:var(--ink);color:var(--text);
+  font-family:var(--sans);font-size:16px;line-height:2;
+  font-weight:400;-webkit-text-size-adjust:100%;
+  padding-bottom:0;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:24px}
+
+/* 英字ラベル：級数を落としてトラッキングを開く。これだけで格が上がる */
+.en{
+  font-family:var(--latin);font-size:13px;font-weight:400;
+  letter-spacing:.42em;text-transform:uppercase;color:var(--gold);
+  display:block;margin-bottom:18px;
+}
+.ttl{
+  font-family:var(--serif);font-weight:600;line-height:1.5;
+  letter-spacing:.08em;margin:0;
+}
+.lead{color:var(--text-weak);font-size:15px;line-height:2.1;margin:18px 0 0;text-wrap:balance}
+
+/* 罫線1本で区切る。飾りは足さない */
+.rule{width:1px;height:56px;background:linear-gradient(180deg,transparent,var(--gold),transparent);margin:0 auto}
+
+/* ---------- ヘッダー ---------- */
+.hd{
+  position:fixed;inset:0 0 auto 0;z-index:100;height:var(--header-h);
+  display:flex;align-items:center;
+  border-bottom:1px solid transparent;transition:background .4s,border-color .4s;
+}
+.hd::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(9,42,66,.82),rgba(9,42,66,0));transition:opacity .4s}
+.hd.is-scrolled{background:rgba(9,42,66,.93);border-bottom-color:var(--line);backdrop-filter:blur(10px)}
+.hd.is-scrolled::before{opacity:0}
+.hd__in{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:24px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px}
+.hd__logo img{height:64px;width:auto}
+.gnav{display:flex;gap:30px;list-style:none;margin:0;padding:0}
+.gnav a{
+  font-size:12px;letter-spacing:.16em;color:var(--text);text-decoration:none;
+  font-weight:500;padding-block:6px;position:relative;white-space:nowrap;
+}
+.gnav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;
+  background:var(--gold);transition:right .35s ease}
+.gnav a:hover::after{right:0}
+
+/* ---------- ヒーロー ---------- */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;z-index:-2;
+  filter:saturate(.92) contrast(1.06) brightness(.82)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(120% 80% at 50% 42%, rgba(9,42,66,.15) 0%, rgba(9,42,66,.82) 100%),
+    linear-gradient(180deg, rgba(9,42,66,.75) 0%, rgba(9,42,66,.25) 35%, rgba(9,42,66,.92) 100%)}
+.hero__in{position:relative;padding:120px 24px 150px}
+.hero__brand{font-family:var(--latin);font-size:clamp(13px,2.6vw,15px);letter-spacing:.5em;color:var(--gold);margin:0 0 34px;text-transform:uppercase}
+.hero__catch{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(30px,6.4vw,58px);line-height:1.62;letter-spacing:.14em;
+  margin:0;padding-left:.55em;
+}
+.hero__catch em{font-style:normal;color:var(--gold-l)}
+.hero__name{margin:30px 0 0;font-family:var(--serif);font-weight:600;
+  font-size:clamp(15px,2.5vw,21px);letter-spacing:.12em;line-height:1.85}
+.hero__name small{display:inline-block;font-family:var(--sans);font-size:.7em;
+  letter-spacing:.08em;color:var(--text-weak)}
+.hero__sub{margin:20px 0 0;font-size:13px;letter-spacing:.18em;color:var(--text-weak)}
+.hero__meta{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;
+  gap:0;margin:44px 0 0;padding:0;font-size:12px;letter-spacing:.14em;color:var(--text-weak)}
+.hero__meta li{padding:0 20px;border-left:1px solid var(--line)}
+.hero__meta li:first-child{border-left:0}
+.hero__scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+  font-family:var(--latin);font-size:11px;letter-spacing:.4em;color:var(--text-weak)}
+.hero__scroll::after{content:"";display:block;width:1px;height:40px;margin:12px auto 0;
+  background:linear-gradient(180deg,var(--gold),transparent)}
+
+/* ---------- ボタン ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  min-height:58px;padding:0 40px;border:1px solid var(--gold);
+  background:transparent;color:var(--gold-l);text-decoration:none;
+  font-size:13px;letter-spacing:.2em;font-weight:500;
+  transition:background .4s,color .4s;
+}
+.btn:hover{background:var(--gold);color:var(--ink)}
+.btn--fill{background:var(--gold);color:var(--ink)}
+.btn--fill:hover{background:var(--gold-l);border-color:var(--gold-l)}
+.btn--dark{border-color:rgba(90,124,150,.4);color:var(--text-dark)}
+.btn--dark:hover{background:var(--text-dark);color:var(--paper);border-color:var(--text-dark)}
+.btn-row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-top:48px}
+
+/* ---------- セクション ---------- */
+.sec{padding-block:120px}
+.sec--paper{background:var(--paper);color:var(--text-dark)}
+.sec--paper .lead{color:var(--text-dark-weak)}
+.sec--paper .en{color:#0e93a4}
+.sec__head{text-align:center;max-width:680px;margin:0 auto 76px}
+.sec__head .ttl{font-size:clamp(22px,3.6vw,30px)}
+
+/* 3つの理由：カードをやめて番号＋罫線の3カラムに */
+.reasons{display:grid;grid-template-columns:1fr;gap:0}
+.reason{padding:44px 0;border-top:1px solid rgba(90,124,150,.12);text-align:center}
+.reason:last-child{border-bottom:1px solid rgba(90,124,150,.12)}
+.reason__no{font-family:var(--latin);font-size:34px;font-weight:300;letter-spacing:.1em;color:#0fb5c4;display:block;line-height:1}
+.reason__ttl{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:.1em;margin:16px 0 12px}
+.reason__txt{margin:0;font-size:15px;line-height:2.1;color:var(--text-dark-weak);text-wrap:balance}
+.nb{white-space:nowrap}
+/* フレーズ単位の折り返し：各フレーズを inline-block でひとまとまりにし、途中改行を防ぐ */
+.ph{display:inline-block}
+
+/* 魅力：写真と文字を1枚ずつ大きく見せる編集レイアウト */
+.feat{display:grid;grid-template-columns:1fr;gap:0;margin-top:0}
+.feat__row{display:grid;grid-template-columns:1fr;align-items:center;gap:0}
+.feat__img{position:relative;overflow:hidden}
+.feat__img img{width:100%;height:100%;object-fit:cover;filter:saturate(1.02) contrast(1.05) brightness(.9);
+  transition:transform 1.2s ease}
+.feat__row:hover .feat__img img{transform:scale(1.04)}
+.feat__body{padding:64px 32px}
+.feat__no{font-family:var(--latin);font-size:12px;letter-spacing:.4em;color:var(--gold);display:block;margin-bottom:18px}
+.feat__ttl{font-family:var(--serif);font-size:clamp(23px,3.4vw,30px);font-weight:600;letter-spacing:.1em;margin:0 0 22px;line-height:1.6}
+.feat__txt{margin:0;font-size:16.5px;line-height:2.15;color:var(--text-weak);text-wrap:pretty}
+.times{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 0;margin:30px 0 0;padding:0;
+  font-family:var(--serif);font-weight:600;font-size:19px;letter-spacing:.04em;color:var(--gold-l)}
+.times li{padding:0 18px;border-left:1px solid var(--line)}
+.times li:first-child{border-left:0;padding-left:0}
+
+/* 料金：罫線だけの表。枠と塗りをなくすと途端に上品になる */
+.price{width:100%;border-collapse:collapse;margin-top:8px}
+.price caption{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.price th,.price td{padding:26px 12px;text-align:center;border-bottom:1px solid rgba(90,124,150,.12)}
+.price thead th{font-size:11px;letter-spacing:.24em;color:var(--text-dark-weak);font-weight:500;
+  border-bottom:1px solid rgba(90,124,150,.28)}
+.price tbody th{text-align:left;font-family:var(--serif);font-size:16px;font-weight:600;letter-spacing:.1em}
+.price .num{font-family:var(--serif);font-size:32px;font-weight:700;letter-spacing:.02em;color:var(--text-dark)}
+.price .num small{font-family:var(--sans);font-size:12px;letter-spacing:.1em;margin-left:2px;color:var(--text-dark-weak)}
+.notes{list-style:none;margin:44px 0 0;padding:0;display:grid;gap:12px;
+  font-size:13.5px;color:var(--text-dark-weak);letter-spacing:.04em}
+.notes li{padding-left:18px;position:relative}
+.notes li::before{content:"";position:absolute;left:0;top:.95em;width:8px;height:1px;background:#0fb5c4}
+
+/* お得情報 */
+.offers{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.offer{background:var(--ink);padding:52px 36px;text-align:center}
+.offer__tag{font-family:var(--latin);font-size:11px;letter-spacing:.32em;color:var(--gold);display:block;margin-bottom:20px}
+.offer__ttl{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:.1em;margin:0 0 20px}
+.offer__num{font-family:var(--serif);font-size:clamp(46px,9vw,66px);font-weight:700;line-height:1;color:var(--gold-l);display:block}
+.offer__num small{font-family:var(--sans);font-size:13px;letter-spacing:.1em;margin-left:6px;color:var(--text-weak)}
+.offer__note{margin:22px 0 0;font-size:12.5px;color:var(--text-weak);line-height:1.9;text-wrap:balance}
+
+/* 帯写真 */
+.band{position:relative;height:clamp(260px,42vw,440px);overflow:hidden}
+.band img{width:100%;height:100%;object-fit:cover;filter:brightness(.62) saturate(.95)}
+.band__cap{position:absolute;inset:auto 0 0 0;padding:0 24px 48px;text-align:center;
+  font-family:var(--serif);font-size:clamp(15px,2.4vw,20px);letter-spacing:.22em}
+
+/* キャスト */
+.casts{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.cast{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--ink-3)}
+.cast img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15) brightness(.8)}
+.cast figcaption{position:absolute;inset:auto 0 0 0;padding:20px 16px;
+  background:linear-gradient(180deg,transparent,rgba(9,42,66,.9));
+  font-family:var(--serif);font-size:14px;letter-spacing:.12em}
+.cast figcaption span{display:block;font-family:var(--sans);font-size:11px;color:var(--text-weak);letter-spacing:.1em;margin-top:4px}
+
+/* SNS：罫線で仕切った2枠。ホバーで金に反転させるだけの静かな作り */
+.sns{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.sns a{
+  background:var(--ink);padding:52px 28px;text-align:center;text-decoration:none;display:block;
+  transition:background .45s ease,color .45s ease;
+}
+.sns a:hover{background:rgba(15,181,196,.07)}
+.sns__name{font-family:var(--latin);font-size:clamp(22px,3vw,30px);letter-spacing:.3em;color:var(--gold-l);display:block}
+.sns__id{display:block;margin-top:14px;font-size:13px;letter-spacing:.12em;color:var(--text-weak)}
+.sns__note{display:block;margin-top:18px;font-size:11px;letter-spacing:.22em;color:var(--gold)}
+
+/* 店舗情報 */
+.info{margin:0;border-top:1px solid var(--line)}
+.info>div{display:grid;grid-template-columns:1fr;gap:2px;padding:22px 0;border-bottom:1px solid var(--line)}
+.info dt{font-size:11px;letter-spacing:.22em;color:var(--gold);margin:0}
+.info dd{margin:0;font-size:14.5px;line-height:1.9;text-wrap:pretty}
+.map{width:100%;height:340px;border:0;filter:grayscale(.35) contrast(1.05) brightness(.92)}
+
+/* フッター */
+.ft{border-top:1px solid var(--line);padding:80px 0 120px;text-align:center}
+.ft__logo{height:92px;width:auto;margin:0 auto 32px}
+.ft__nav{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 28px;margin:0 0 36px;padding:0;
+  font-size:12px;letter-spacing:.14em}
+.ft__nav a{text-decoration:none;color:var(--text-weak)}
+.ft__nav a:hover{color:var(--gold-l)}
+.ft__meta{font-size:12.5px;color:var(--text-weak);line-height:2.1;margin:0 0 28px}
+.ft__caution{display:inline-block;border:1px solid var(--line);padding:10px 24px;
+  font-size:12px;letter-spacing:.14em;color:var(--gold-l);margin-bottom:24px}
+.ft__copy{font-size:11px;color:#8ea3b6;letter-spacing:.08em;margin:0;line-height:2}
+
+/* 追従CTA（スマホのみ） */
+.cta{position:fixed;inset:auto 0 0 0;z-index:90;display:grid;grid-template-columns:repeat(2,1fr);
+  background:rgba(9,42,66,.94);border-top:1px solid var(--line);backdrop-filter:blur(10px)}
+.cta a{padding:16px 4px;text-align:center;text-decoration:none;font-size:11px;letter-spacing:.14em;
+  color:var(--text);border-left:1px solid var(--line)}
+.cta a:first-child{border-left:0}
+.cta a span{display:block;font-family:var(--latin);font-size:10px;letter-spacing:.3em;color:var(--gold);margin-bottom:4px}
+
+.mobile-only{display:block}
+.pc-only{display:none}
+
+@media (min-width:768px){
+  .wrap{padding-inline:40px}
+  .sec{padding-block:160px}
+  .reasons{grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(90,124,150,.12);
+    border-top:1px solid rgba(90,124,150,.12);border-bottom:1px solid rgba(90,124,150,.12)}
+  .reason{background:var(--paper);padding:56px 32px;border:0}
+  .reason:last-child{border-bottom:0}
+  .feat__row{grid-template-columns:1.15fr 1fr}
+  .feat__row--rev .feat__img{order:2}
+  .feat__img{height:100%;min-height:520px}
+  .feat__body{padding:0 64px}
+  .offers{grid-template-columns:1fr 1fr}
+  .sns{grid-template-columns:1fr 1fr}
+  .casts{grid-template-columns:repeat(4,1fr)}
+  .info>div{grid-template-columns:180px 1fr;gap:24px;align-items:baseline;padding:24px 0}
+  .map{height:420px}
+  .cta{display:none}
+  body{padding-bottom:0}
+  .mobile-only{display:none}
+  .pc-only{display:block}
+}
+@media (max-width:767px){
+  .gnav{display:none}
+    .hd__logo img{height:46px}
+  body{padding-bottom:62px}
+  /* ヒーロー：トップ画像は"引き"で全体を見せる。写真をバナーとして上に置き、
+     文言＋電話CTAはその下のネイビー面に。SCROLLはCTAに重なるため非表示 */
+  .hero{min-height:auto;display:block;overflow:visible;padding-top:78px;
+        background:linear-gradient(180deg,#0a1c30 0%,#0e2a4d 100%)}
+  .hero img{position:static;width:100%;height:auto;object-fit:contain}
+  .hero::after{display:none}
+  .hero__in{position:relative;padding:30px 24px 44px}
+  .hero__scroll{display:none}
+  .hero__name{margin-top:16px}
+  .hero__sub{margin-top:8px}
+  .hero .btn-row{margin-top:26px}
+  /* メタ情報：中点区切りの折り返しをやめ、1項目ずつ中央に積んでバランスよく */
+  .hero__meta{flex-direction:column;gap:5px;margin-top:20px}
+  .hero__meta li{border-left:0;padding:0}
+  .feat__body{padding:48px 24px}
+  .price th,.price td{padding:20px 6px}
+  .price .num{font-size:24px}
+  /* アクセスの2ボタンを同じ幅に揃える */
+  #access .btn-row .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ================= ライト版の差分 =================
+   触っているのは「色」と「写真に重ねるスクリーン」だけ。
+   余白・罫線・文字組みは黒×金版とまったく同じ。 */
+
+/* --- ヒーローだけは写真の上なので白文字を維持する --- */
+.hero{color:#fff}
+.hero img{filter:saturate(1.06) contrast(1.03) brightness(.9)}
+.hero::after{background:
+  radial-gradient(120% 80% at 50% 42%, rgba(9,42,66,.10) 0%, rgba(9,42,66,.74) 100%),
+  linear-gradient(180deg, rgba(9,42,66,.6) 0%, rgba(9,42,66,.16) 35%, rgba(9,42,66,.9) 100%)}
+.hero__brand{color:#8fe6f0}
+.hero__catch em{color:#ff9ec4}
+.hero__name{color:#fff}
+.hero__name small{color:rgba(255,255,255,.72)}
+.hero__sub,.hero__scroll{color:rgba(255,255,255,.82)}
+.hero__meta{color:rgba(255,255,255,.86)}
+.hero__meta li{border-left-color:rgba(255,255,255,.4)}
+.hero__meta li+li::before{color:#8fe6f0}
+.hero__scroll::after{background:linear-gradient(180deg,rgba(255,255,255,.85),transparent)}
+
+/* --- ヘッダー：写真の上では白抜き、スクロール後は白背景＋濃紺 --- */
+.hd::before{background:linear-gradient(180deg,rgba(9,42,66,.5),rgba(9,42,66,0))}
+.hd .gnav a{color:#fff}
+.hd.is-scrolled{background:rgba(255,255,255,.95)}
+.hd.is-scrolled .gnav a{color:var(--text)}
+.gnav a::after{background:var(--accent)}
+
+/* --- 黒く塗っていた面を白に。区切りは1px罫線のまま --- */
+.offer,.sns a{background:#fff}
+.sns a:hover{background:var(--paper)}
+.offer__num{color:var(--accent)}
+.offer__note,.sns__id{color:var(--text-weak)}
+.cast{background:var(--ink-3)}
+.cast img{filter:none}
+.cast figcaption{background:linear-gradient(180deg,transparent,rgba(9,42,66,.86));color:#fff}
+.cast figcaption span{color:rgba(255,255,255,.7)}
+.band img{filter:brightness(.74) saturate(1.08)}
+.band__cap{color:#fff}
+.map{filter:none}
+.info dd{color:var(--text)}
+
+/* --- ボタン：塗りは現行サイトと同じティール→ブルーのグラデ --- */
+.btn{border-color:var(--primary);color:var(--primary-dark)}
+.btn:hover{background:var(--primary);color:#fff}
+.btn--fill{background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  border-color:transparent;color:#fff}
+.btn--fill:hover{opacity:.88;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff}
+.btn--dark{border-color:var(--accent);color:var(--accent)}
+.btn--dark:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* ヒーロー内のボタンは背景が写真なので白抜きに */
+.hero .btn{border-color:rgba(255,255,255,.7);color:#fff}
+.hero .btn:hover{background:#fff;color:var(--primary-dark)}
+.hero .btn--fill{border-color:transparent}
+
+/* --- 見出しの下の罫はピンク（現行サイトと同じ見え方） --- */
+.sec__head .ttl::after{
+  content:"";display:block;width:56px;height:3px;border-radius:2px;
+  margin:22px auto 0;background:linear-gradient(90deg,#ff7ab0,var(--accent));
+}
+.rule{background:linear-gradient(180deg,transparent,var(--primary),transparent)}
+
+/* --- トロピカルは「大きく1つ」だけ。料金セクションの背景に線画のハイビスカス --- */
+#system{position:relative;overflow:hidden}
+#system::before{
+  content:"";position:absolute;top:-12%;right:-8%;
+  width:min(560px,64vw);aspect-ratio:1;
+  background:url("images/hibiscus.svg") no-repeat center/contain;
+  opacity:.16;transform:rotate(-12deg);pointer-events:none;
+}
+#system .wrap{position:relative}
+
+/* --- フッター / 追従CTA --- */
+.ft__caution{border-color:rgba(230,76,139,.45);color:var(--accent)}
+.ft__nav a:hover{color:var(--accent)}
+.cta{background:rgba(255,255,255,.96);box-shadow:0 -4px 16px rgba(13,27,42,.1)}
+.cta a{color:var(--text)}
+.cta a span{color:var(--primary)}
+/* 電話ボタンだけ枠をピンクにして、2つのうちどちらを押すかを一目で分からせる。
+   .cta 自体の border-top は各セルに移して、上辺がピンクと灰色で二重にならないようにしている */
+.cta{border-top:0}
+.cta a{border-top:1px solid var(--line)}
+.cta a:first-child{border:1px solid rgba(230,76,139,.38)}
+.cta a+a{border:1px solid rgba(15,181,196,.38);border-left:0}
+.cta a:first-child span{color:rgba(230,76,139,.8)}
+.cta a+a span{color:rgba(15,181,196,.9)}
+
+/* ===== モバイル：ハンバーガーメニュー ===== */
+.hd__burger{display:none}
+.mnav{display:none}
+@media (max-width:767px){
+  .hd__burger{
+    display:flex;flex-direction:column;justify-content:center;gap:6px;
+    width:44px;height:44px;padding:10px;margin:-10px -6px -10px 0;
+    background:none;border:0;cursor:pointer;position:relative;z-index:110;
+  }
+  .hd__burger span{display:block;width:100%;height:2px;border-radius:2px;background:#fff;
+    transition:transform .35s ease,opacity .25s ease,background .3s ease}
+  .hd.is-scrolled .hd__burger span{background:var(--text)}
+
+  .mnav{
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    position:fixed;inset:0;z-index:95;
+    background:rgba(9,42,66,.97);backdrop-filter:blur(6px);
+    padding:var(--header-h) 24px 40px;
+    opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s ease;
+  }
+  .mnav.is-open{opacity:1;visibility:visible}
+  .mnav__list{list-style:none;margin:0;padding:0;width:100%;max-width:360px;text-align:center}
+  .mnav__list li{border-bottom:1px solid rgba(255,255,255,.12)}
+  .mnav__list a{display:block;padding:20px 0;color:#fff;text-decoration:none;
+    font-family:var(--serif);font-size:19px;letter-spacing:.14em}
+  .mnav__tel{border-bottom:0!important;margin-top:16px}
+  .mnav__tel a{font-family:var(--sans);font-size:16px;letter-spacing:.1em;color:#8fe6f0}
+
+  /* 開いている時：3本線を×に、ヘッダー背景を透過して×を見やすく */
+  .hd__burger.is-open span{background:#fff}
+  .hd__burger.is-open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .hd__burger.is-open span:nth-child(2){opacity:0}
+  .hd__burger.is-open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  body.menu-open{overflow:hidden}
+  body.menu-open .hd,body.menu-open .hd.is-scrolled{background:transparent;border-color:transparent;backdrop-filter:none}
+  body.menu-open .hd::before{opacity:0}
+}
+</style>
+</head>
+<body>
+
+<header class="hd">
+  <div class="hd__in">
+    <a class="hd__logo" href="#top"><img src="images/logo-b-header.png" alt="Up Stage 88"></a>
+    <nav>
+      <ul class="gnav">
+        <li><a href="#about">ワロワロについて</a></li>
+        <li><a href="#system">システム</a></li>
+        <li><a href="#cast">キャスト</a></li>
+        <li><a href="#access">アクセス</a></li>
+        <li><a href="#sns">SNS</a></li>
+        <li><a href="#event">イベント</a></li>
+      </ul>
+    </nav>
+    <button class="hd__burger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mnav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== モバイルメニュー ===== -->
+<nav class="mnav" id="mnav" aria-label="モバイルメニュー">
+  <ul class="mnav__list">
+    <li><a href="#about">ワロワロについて</a></li>
+    <li><a href="#system">システム</a></li>
+    <li><a href="#cast">キャスト</a></li>
+    <li><a href="#access">アクセス</a></li>
+    <li><a href="#sns">SNS</a></li>
+    <li><a href="#event">イベント</a></li>
+    <li class="mnav__tel"><a href="tel:0265967880">📞 0265-96-7880</a></li>
+  </ul>
+</nav>
+
+<main id="top">
+
+  <!-- ===== ヒーロー ===== -->
+  <section class="hero">
+    <img src="images/hero-cast.jpg" alt="赤いドレスで並ぶ Up Stage 88 のキャスト" fetchpriority="high">
+    <div class="hero__in">
+      <h1 class="hero__catch">熱く、<em>美しい</em>、<br>フィリピンの夜を。</h1>
+      <p class="hero__name">駒ヶ根のフィリピンクラブ<br>Up Stage 88<small>（アップステージ ワロワロ）</small></p>
+      <p class="hero__sub">最大80名・ショータイムのある大型店</p>
+      <ul class="hero__meta">
+        <li>90分 飲み放題</li>
+        <li>ショータイム1日3回</li>
+        <li>カード利用可</li>
+      </ul>
+      <div class="btn-row">
+        <a class="btn btn--fill" href="tel:0265967880">📞 電話で予約する</a>
+      </div>
+    </div>
+    <p class="hero__scroll">SCROLL</p>
+  </section>
+
+  <!-- ===== 3つの理由 ===== -->
+  <section class="sec sec--paper" id="about">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="en">Reliable</span>
+        <h2 class="ttl">はじめてでも安心の3つの理由</h2>
+        <p class="lead"><span class="ph">「よく分からないから不安」を、</span><span class="ph">ぜんぶ先に</span><span class="ph">お伝えします。</span></p>
+      </div>
+
+      <div class="reasons">
+        <div class="reason">
+          <span class="reason__no">01</span>
+          <h3 class="reason__ttl">明朗会計</h3>
+          <p class="reason__txt"><span class="ph">表示料金以外は</span><span class="ph">いただきません。</span><span class="ph">90分は</span><span class="ph">男性5,500円・</span><span class="ph">女性3,300円</span><span class="ph">（税・サービス料込み）。</span><span class="ph">追加は</span><span class="ph">延長やご指名など、</span><span class="ph">頼んだ分だけ。</span><span class="ph">会計で驚くことは</span><span class="ph">ありません。</span></p>
+        </div>
+        <div class="reason">
+          <span class="reason__no">02</span>
+          <h3 class="reason__ttl">明確なシステム</h3>
+          <p class="reason__txt"><span class="ph">基本は</span><span class="ph">90分の飲み放題セット。</span><span class="ph">時間・料金・流れが</span><span class="ph">はっきりしているから、</span><span class="ph">初めてでも迷いません。</span><span class="ph">お支払いは</span><span class="ph">カードもOKです。</span></p>
+        </div>
+        <div class="reason">
+          <span class="reason__no">03</span>
+          <h3 class="reason__ttl">予約不要・おまかせOK</h3>
+          <p class="reason__txt"><span class="ph">予約なしの</span><span class="ph">ご来店も歓迎です。</span><span class="ph">「何も分からない」</span><span class="ph">ままで大丈夫。</span><span class="ph">ご予算やお好みを</span><span class="ph">伝えていただければ、</span><span class="ph">スタッフが</span><span class="ph">最適な遊び方を</span><span class="ph">ご案内します。</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 魅力 ===== -->
+  <section class="sec" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="en">Features</span>
+        <h2 class="ttl">Up Stage 88 の魅力</h2>
+        <p class="lead"><span class="ph">駒ヶ根エリア最大級。</span><span class="ph">広くて明るい店内で、</span><span class="ph">本場のショーを。</span></p>
+      </div>
+    </div>
+
+    <div class="feat">
+      <article class="feat__row">
+        <div class="feat__img"><img src="images/feat-showtime.jpg" alt="ショータイムが行われるステージとダンスフロア" loading="lazy"></div>
+        <div class="feat__body">
+          <span class="feat__no">01 &nbsp;Show Time</span>
+          <h3 class="feat__ttl">本格ショータイムが1日3回</h3>
+          <p class="feat__txt"><span class="ph">フィリピン人キャストによる</span><span class="ph">歌とダンスのステージを、</span><span class="ph">毎日3回開催。</span><span class="ph">生の歌声と</span><span class="ph">華やかな衣装で</span><span class="ph">店内が一気に</span><span class="ph">盛り上がります。</span></p>
+          <ul class="times"><li>20:30〜21:00</li><li>22:00〜22:30</li><li>23:30〜24:00</li></ul>
+        </div>
+      </article>
+
+      <article class="feat__row feat__row--rev">
+        <div class="feat__img"><img src="images/feat-dancefloor.jpg" alt="市松模様のダンスフロア" loading="lazy"></div>
+        <div class="feat__body">
+          <span class="feat__no">02 &nbsp;Dance Floor</span>
+          <h3 class="feat__ttl">市松模様のダンスフロア</h3>
+          <p class="feat__txt"><span class="ph">白黒の市松模様が映える</span><span class="ph">広いダンスフロア。</span><span class="ph">ミラーボールと照明が回れば、</span><span class="ph">そこはもう南国の夜。</span><span class="ph">踊りたくなる空間です。</span></p>
+        </div>
+      </article>
+
+      <article class="feat__row">
+        <div class="feat__img"><img src="images/feat-party.jpg" alt="団体利用に対応したボックス席" loading="lazy"></div>
+        <div class="feat__body">
+          <span class="feat__no">03 &nbsp;Party</span>
+          <h3 class="feat__ttl">最大80名・団体様歓迎</h3>
+          <p class="feat__txt"><span class="ph">ゆったりしたボックス席を</span><span class="ph">多数ご用意。</span><span class="ph">駒ヶ根での</span><span class="ph">宴会・二次会・歓送迎会など、</span><span class="ph">大人数のご利用も</span><span class="ph">安心してお任せください。</span></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== お得情報 ===== -->
+  <section class="sec" id="event">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="en">Special Offer</span>
+        <h2 class="ttl">お得情報</h2>
+        <p class="lead"><span class="ph">毎月8日は</span><span class="ph">「ワロワロの日」。</span><span class="ph">団体割引も</span><span class="ph">あります。</span></p>
+      </div>
+
+      <div class="offers">
+        <div class="offer">
+          <span class="offer__tag">Every 8th</span>
+          <h3 class="offer__ttl">88（ワロワロ）の日</h3>
+          <strong class="offer__num">2,750<small>円 / 90分</small></strong>
+          <p class="offer__note">初回セット料金が半額<br>※8日が金・土の場合は翌日曜に振替となります。</p>
+        </div>
+        <div class="offer">
+          <span class="offer__tag">Group</span>
+          <h3 class="offer__ttl">男性3名以上のご来店で</h3>
+          <strong class="offer__num">1,000<small>円 OFF</small></strong>
+          <p class="offer__note">お一人様あたりの割引額です。<br>ご予約時にお申し付けください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 料金 ===== -->
+  <section class="sec sec--paper" id="system">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="en">System</span>
+        <h2 class="ttl">料金システム</h2>
+        <p class="lead"><span class="ph">表示価格はすべて</span><span class="ph">税・サービス料込みです。</span></p>
+      </div>
+
+      <table class="price">
+        <caption>Up Stage 88 のセット料金と延長料金</caption>
+        <thead>
+          <tr><th scope="col">区分</th><th scope="col">90分 飲み放題</th><th scope="col">延長 60分</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">男性</th><td><span class="num">5,500<small>円</small></span></td><td><span class="num">3,500<small>円</small></span></td></tr>
+          <tr><th scope="row">女性</th><td><span class="num">3,300<small>円</small></span></td><td><span class="num">2,200<small>円</small></span></td></tr>
+        </tbody>
+      </table>
+
+      <ul class="notes">
+        <li>指名料：2,000円</li>
+        <li>レディースドリンク：1,000円</li>
+        <li>各種クレジットカードがご利用いただけます。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== キャスト ===== -->
+  <section class="sec" id="cast" style="padding-bottom:120px">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="en">Cast</span>
+        <h2 class="ttl">キャスト紹介</h2>
+        <p class="lead"><span class="ph">明るく元気な</span><span class="ph">フィリピン人キャストが</span><span class="ph">お待ちしています。</span></p>
+      </div>
+    </div>
+    <div class="casts">
+      <figure class="cast"><img src="images/cast/placeholder.jpg" alt="キャスト（写真準備中）" loading="lazy"><figcaption>Coming Soon<span>写真準備中</span></figcaption></figure>
+      <figure class="cast"><img src="images/cast/placeholder.jpg" alt="キャスト（写真準備中）" loading="lazy"><figcaption>Coming Soon<span>写真準備中</span></figcaption></figure>
+      <figure class="cast"><img src="images/cast/placeholder.jpg" alt="キャスト（写真準備中）" loading="lazy"><figcaption>Coming Soon<span>写真準備中</span></figcaption></figure>
+      <figure class="cast"><img src="images/cast/placeholder.jpg" alt="キャスト（写真準備中）" loading="lazy"><figcaption>Coming Soon<span>写真準備中</span></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ===== SNS ===== -->
+  <section class="sec" id="sns" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="en">Follow us</span>
+        <h2 class="ttl">最新の様子はSNSで</h2>
+        <p class="lead"><span class="ph">ショータイムや</span><span class="ph">店内の雰囲気を</span><span class="ph">随時更新しています。</span></p>
+      </div>
+
+      <div class="sns">
+        <a href="https://www.tiktok.com/@upstage_walowalo" target="_blank" rel="noopener">
+          <span class="sns__name">TikTok</span>
+          <span class="sns__id">@upstage_walowalo</span>        </a>
+        <a href="https://www.instagram.com/upstage88_walowalo/" target="_blank" rel="noopener">
+          <span class="sns__name">Instagram</span>
+          <span class="sns__id">@upstage88_walowalo</span>        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== アクセス ===== -->
+  <section class="sec" id="access">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="en">Access</span>
+        <h2 class="ttl">アクセス・基本情報</h2>
+        <p class="lead"><span class="ph">長野県駒ヶ根市</span><span class="ph">上穂栄町6-2</span></p>
+      </div>
+
+      <iframe class="map"
+        src="https://maps.google.com/maps?q=%E9%95%B7%E9%87%8E%E7%9C%8C%E9%A7%92%E3%83%B6%E6%A0%B9%E5%B8%82%E4%B8%8A%E7%A9%82%E6%A0%84%E7%94%BA6-2&output=embed"
+        title="Up Stage 88 の地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+
+      <dl class="info">
+        <div><dt>店名</dt><dd>フィリピンクラブ Up Stage 88（アップステージ ワロワロ）</dd></div>
+        <div><dt>住所</dt><dd>〒399-4115 長野県駒ヶ根市上穂栄町6-2</dd></div>
+        <div><dt>電話</dt><dd><a href="tel:0265967880">0265-96-7880</a></dd></div>
+        <div><dt>席数</dt><dd>最大80名・団体様歓迎</dd></div>
+        <div><dt>支払い</dt><dd>現金・各種クレジットカード</dd></div>
+      </dl>
+
+      <div class="btn-row">
+        <a class="btn btn--fill" href="tel:0265967880">📞 電話で予約する</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <img class="ft__logo" src="images/logo-a-full.png" alt="Up Stage 88">
+    <ul class="ft__nav">
+      <li><a href="#about">ワロワロについて</a></li>
+      <li><a href="#system">システム</a></li>
+      <li><a href="#cast">キャスト</a></li>
+      <li><a href="#access">アクセス</a></li>
+      <li><a href="#sns">SNS</a></li>
+      <li><a href="#event">イベント</a></li>
+    </ul>
+    <p class="ft__meta">
+      フィリピンクラブ Up Stage 88<br>
+      〒399-4115 長野県駒ヶ根市上穂栄町6-2<br>
+      TEL 0265-96-7880
+    </p>
+    <p class="ft__caution">18歳未満の方の入店はお断りします</p>
+    <p class="ft__copy">&copy; Up Stage 88 (アップステージ ワロワロ). All rights reserved.</p>
+  </div>
+</footer>
+
+<nav class="cta">
+  <a href="tel:0265967880"><span>Tel</span>電話予約</a>
+  <a href="#access"><span>Map</span>アクセス</a>
+</nav>
+
+<script>
+// ヘッダー：ファーストビューを外れたら黒く締める
+(function(){
+  var hd = document.querySelector('.hd');
+  var onScroll = function(){ hd.classList.toggle('is-scrolled', window.scrollY > window.innerHeight * .7); };
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+})();
+
+// ハンバーガーメニューの開閉
+(function(){
+  var burger = document.querySelector('.hd__burger');
+  var mnav = document.getElementById('mnav');
+  if(!burger || !mnav) return;
+  var setOpen = function(open){
+    burger.classList.toggle('is-open', open);
+    mnav.classList.toggle('is-open', open);
+    document.body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+  };
+  burger.addEventListener('click', function(){ setOpen(!mnav.classList.contains('is-open')); });
+  mnav.addEventListener('click', function(e){ if(e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setOpen(false); });
+})();
+</script>
+</body>
+</html>

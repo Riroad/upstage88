@@ -1,0 +1,20 @@
+# 公開するのは初稿LP（index.html）と、そこで実際に使う画像だけ。
+# 提案用モックアップ・旧マルチページ版・未使用画像はローカルに残すが公開しない。
+/*
+!/.gitignore
+!/index.html
+!/images/
+# robots.txt は github.io のサブパスでは効かないため公開対象外。
+# 代わりに index.html の noindex メタタグで検索避けしている。
+
+/images/*
+!/images/hibiscus.svg
+!/images/feat-dancefloor.jpg
+!/images/feat-party.jpg
+!/images/feat-showtime.jpg
+!/images/hero-cast.jpg
+!/images/logo-a-full.png
+!/images/logo-b-header.png
+!/images/cast/
+/images/cast/*
+!/images/cast/placeholder.jpg
