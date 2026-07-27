@@ -12,6 +12,8 @@
 <meta property="og:url" content="https://riroad.github.io/upstage88/">
 <meta property="og:image" content="https://riroad.github.io/upstage88/images/hero-cast.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<!-- TODO: 本番ドメイン確定時に差し替え - og:url / og:image / canonical / JSON-LD の @id・url の計5箇所 -->
+<link rel="canonical" href="https://riroad.github.io/upstage88/">
 <!-- TODO: 公開時に削除 - 初稿確認用URLを検索結果に出さないため -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -422,6 +424,49 @@ a{color:inherit}
   body.menu-open .hd::before{opacity:0}
 }
 </style>
+
+<!-- 構造化データ：Googleに「駒ヶ根のナイトクラブ」という店舗の素性を伝える。
+     地図検索・ナレッジパネルの土台になるので、表示中の情報と食い違わせないこと。
+     営業時間は「年中無休」「19:00〜」ごとサイトから削除済みのため、
+     openingHoursSpecification は意図的に入れていない（書き戻さないこと）。 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NightClub",
+  "@id": "https://riroad.github.io/upstage88/#store",
+  "name": "Up Stage 88",
+  "alternateName": "アップステージ ワロワロ",
+  "description": "長野県駒ヶ根市のフィリピンクラブ。最大80名の大型店で、フィリピン人キャストによる本格ショータイムを1日3回開催。90分飲み放題は男性5,500円／女性3,300円（税・サービス料込み）。",
+  "url": "https://riroad.github.io/upstage88/",
+  "image": "https://riroad.github.io/upstage88/images/hero-cast.jpg",
+  "telephone": "+81-265-96-7880",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "JP",
+    "postalCode": "399-4115",
+    "addressRegion": "長野県",
+    "addressLocality": "駒ヶ根市",
+    "streetAddress": "上穂栄町6-2"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 35.735008,
+    "longitude": 137.933655
+  },
+  "sameAs": [
+    "https://www.tiktok.com/@upstage_walowalo",
+    "https://www.instagram.com/upstage88_walowalo/"
+  ],
+  "priceRange": "¥3,300〜¥5,500",
+  "currenciesAccepted": "JPY",
+  "paymentAccepted": "現金, クレジットカード",
+  "maximumAttendeeCapacity": 80,
+  "areaServed": {
+    "@type": "City",
+    "name": "駒ヶ根市"
+  }
+}
+</script>
 </head>
 <body>
 
