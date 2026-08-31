@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>フィリピンクラブ Up Stage 88｜長野県駒ヶ根市のフィリピンパブ</title>
-<meta name="description" content="長野県駒ヶ根市のフィリピンクラブ「Up Stage 88（アップステージ ワロワロ）」。最大80名の大型店で本格ショータイムが1日3回。90分飲み放題 男性5,500円／女性3,300円（税・サービス料込）。カード利用可。明朗会計で初めてでも安心。">
+<meta name="description" content="長野県駒ヶ根市のフィリピンクラブ「Up Stage 88（アップステージ ワロワロ）」。最大80名の大型店で本格ショータイムが1日3回。90分 / 男性 5,500円・女性 3,300円（税・サービス料込み）。カード利用可。団体割引あり。初めてでも安心です。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="フィリピンクラブ Up Stage 88">
 <meta property="og:title" content="フィリピンクラブ Up Stage 88｜長野県駒ヶ根市のフィリピンパブ">
@@ -14,7 +14,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <!-- TODO: 本番ドメイン確定時に差し替え - og:url / og:image / canonical / JSON-LD の @id・url の計5箇所 -->
 <link rel="canonical" href="https://riroad.github.io/upstage88/">
-<!-- TODO: 公開時に削除 - 初稿確認用URLを検索結果に出さないため -->
+<!-- 共有用URL（riroad.github.io）を検索結果に出さないため。
+     本番ドメインへ公開する際は、この2行を必ず削除すること -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +48,7 @@
 html{scroll-behavior:smooth}
 /* 固定ヘッダーの下にセクション見出しが隠れないよう、上余白の無いSNSにアンカー用の余白を確保 */
 #sns{scroll-margin-top:calc(var(--header-h) + 20px)}
+#event{scroll-margin-top:calc(var(--header-h) + 20px)}
 body{
   margin:0;background:var(--ink);color:var(--text);
   font-family:var(--sans);font-size:16px;line-height:2;
@@ -183,6 +185,12 @@ a{color:inherit}
 .price tbody th{text-align:left;font-family:var(--serif);font-size:16px;font-weight:600;letter-spacing:.1em}
 .price .num{font-family:var(--serif);font-size:32px;font-weight:700;letter-spacing:.02em;color:var(--text-dark)}
 .price .num small{font-family:var(--sans);font-size:12px;letter-spacing:.1em;margin-left:2px;color:var(--text-dark-weak)}
+
+/* セクション内の小見出し */
+.sub-ttl{font-family:var(--serif);font-size:17px;font-weight:600;letter-spacing:.18em;
+  text-align:center;margin:76px 0 26px}
+.sub-ttl::before{content:"";display:block;width:1px;height:34px;margin:0 auto 20px;
+  background:linear-gradient(180deg,transparent,var(--primary))}
 .notes{list-style:none;margin:44px 0 0;padding:0;display:grid;gap:12px;
   font-size:13.5px;color:var(--text-dark-weak);letter-spacing:.04em}
 .notes li{padding-left:18px;position:relative}
@@ -203,14 +211,23 @@ a{color:inherit}
 .band__cap{position:absolute;inset:auto 0 0 0;padding:0 24px 48px;text-align:center;
   font-family:var(--serif);font-size:clamp(15px,2.4vw,20px);letter-spacing:.22em}
 
-/* キャスト */
-.casts{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
-.cast{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--ink-3)}
-.cast img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15) brightness(.8)}
-.cast figcaption{position:absolute;inset:auto 0 0 0;padding:20px 16px;
-  background:linear-gradient(180deg,transparent,rgba(9,42,66,.9));
-  font-family:var(--serif);font-size:14px;letter-spacing:.12em}
-.cast figcaption span{display:block;font-family:var(--sans);font-size:11px;color:var(--text-weak);letter-spacing:.1em;margin-top:4px}
+/* イベント情報：正方形の告知画像＋日付＋タイトル。毎月1〜3件を差し替える枠 */
+/* 件数が2件でも空きマスが出ないよう、枠は各カードが持ち auto-fit で詰める */
+.events{display:grid;grid-template-columns:1fr;gap:24px;align-items:start}
+.ev{background:var(--ink);border:1px solid var(--line);display:block}
+/* チラシは日付や料金が端に入るため、切り抜かず全体を見せる（縦横比は画像なり） */
+.ev__img{overflow:hidden;background:var(--ink-3)}
+.ev__img img{width:100%;height:auto;transition:transform .8s ease}
+.ev:hover .ev__img img{transform:scale(1.04)}
+.ev__body{padding:30px 26px 36px;text-align:center}
+.ev__date{margin:0 0 14px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px 14px;
+  font-family:var(--latin);font-size:16px;letter-spacing:.18em;color:var(--gold-l)}
+.ev__day{display:inline-flex;align-items:center;gap:8px}
+.ev__dow{font-family:var(--sans);font-size:10.5px;letter-spacing:.06em;color:#fff;
+  background:var(--accent);border-radius:2px;padding:4px 8px;line-height:1}
+.ev__ttl{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:.08em;margin:0 0 12px;line-height:1.6}
+.ev__txt{margin:0;font-size:13.5px;line-height:1.95;color:var(--text-weak);text-wrap:pretty}
+.events__note{margin:26px 0 0;font-size:13px;line-height:1.9;color:var(--text-weak);text-align:center;letter-spacing:.04em;text-wrap:balance}
 
 /* SNS：罫線で仕切った2枠。ホバーで金に反転させるだけの静かな作り */
 .sns{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
@@ -266,7 +283,7 @@ a{color:inherit}
   .feat__body{padding:0 64px}
   .offers{grid-template-columns:1fr 1fr}
   .sns{grid-template-columns:1fr 1fr}
-  .casts{grid-template-columns:repeat(4,1fr)}
+  .events{grid-template-columns:repeat(auto-fit,minmax(260px,340px));justify-content:center;gap:32px}
   .info>div{grid-template-columns:180px 1fr;gap:24px;align-items:baseline;padding:24px 0}
   .map{height:420px}
   .cta{display:none}
@@ -277,7 +294,7 @@ a{color:inherit}
 @media (max-width:767px){
   .gnav{display:none}
     .hd__logo img{height:46px}
-  body{padding-bottom:62px}
+  body{padding-bottom:80px}  /* 追従CTAバーの実高に合わせる */
   /* ヒーロー：トップ画像は"引き"で全体を見せる。写真をバナーとして上に置き、
      文言＋電話CTAはその下のネイビー面に。SCROLLはCTAに重なるため非表示 */
   .hero{min-height:auto;display:block;overflow:visible;padding-top:78px;
@@ -288,7 +305,13 @@ a{color:inherit}
   .hero__scroll{display:none}
   .hero__name{margin-top:16px}
   .hero__sub{margin-top:8px}
-  .hero .btn-row{margin-top:26px}
+  /* 追従CTAバー（画面下固定）に完全に隠れるため、スマホではヒーロー内の
+     電話ボタンを出さない。電話導線は追従バー側が担う */
+  .hero .btn-row{display:none}
+  /* 「フィリピンの夜を。」が2行に割れて「を。」が孤立するため、
+     スマホのみ級数と字送りを詰める。padding-left は字送りぶんの
+     視覚的な中央合わせなので、字送りに合わせて縮める */
+  .hero__catch{font-size:clamp(26px,7.2vw,58px);letter-spacing:.08em;padding-left:.4em}
   /* メタ情報：中点区切りの折り返しをやめ、1項目ずつ中央に積んでバランスよく */
   .hero__meta{flex-direction:column;gap:5px;margin-top:20px}
   .hero__meta li{border-left:0;padding:0}
@@ -332,10 +355,7 @@ a{color:inherit}
 .sns a:hover{background:var(--paper)}
 .offer__num{color:var(--accent)}
 .offer__note,.sns__id{color:var(--text-weak)}
-.cast{background:var(--ink-3)}
-.cast img{filter:none}
-.cast figcaption{background:linear-gradient(180deg,transparent,rgba(9,42,66,.86));color:#fff}
-.cast figcaption span{color:rgba(255,255,255,.7)}
+.ev{background:#fff}
 .band img{filter:brightness(.74) saturate(1.08)}
 .band__cap{color:#fff}
 .map{filter:none}
@@ -427,8 +447,9 @@ a{color:inherit}
 
 <!-- 構造化データ：Googleに「駒ヶ根のナイトクラブ」という店舗の素性を伝える。
      地図検索・ナレッジパネルの土台になるので、表示中の情報と食い違わせないこと。
-     営業時間は「年中無休」「19:00〜」ごとサイトから削除済みのため、
-     openingHoursSpecification は意図的に入れていない（書き戻さないこと）。 -->
+     【重要・書き戻し禁止】開店・閉店の時刻、休みの有無など「いつ開いているか」に類する
+     記述は、本文・構造化データのいずれからも削除済み。申請内容と食い違うおそれがあるため、
+     openingHoursSpecification を含め今後も一切記載しないこと。 -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -436,7 +457,7 @@ a{color:inherit}
   "@id": "https://riroad.github.io/upstage88/#store",
   "name": "Up Stage 88",
   "alternateName": "アップステージ ワロワロ",
-  "description": "長野県駒ヶ根市のフィリピンクラブ。最大80名の大型店で、フィリピン人キャストによる本格ショータイムを1日3回開催。90分飲み放題は男性5,500円／女性3,300円（税・サービス料込み）。",
+  "description": "長野県駒ヶ根市のフィリピンクラブ。最大80名の大型店で、フィリピン人キャストによる本格ショータイムを1日3回開催。90分 / 男性 5,500円・女性 3,300円（税・サービス料込み）。",
   "url": "https://riroad.github.io/upstage88/",
   "image": "https://riroad.github.io/upstage88/images/hero-cast.jpg",
   "telephone": "+81-265-96-7880",
@@ -476,11 +497,10 @@ a{color:inherit}
     <nav>
       <ul class="gnav">
         <li><a href="#about">ワロワロについて</a></li>
-        <li><a href="#system">システム</a></li>
-        <li><a href="#cast">キャスト</a></li>
+        <li><a href="#system">料金・お得情報</a></li>
+        <li><a href="#event">イベント</a></li>
         <li><a href="#access">アクセス</a></li>
         <li><a href="#sns">SNS</a></li>
-        <li><a href="#event">イベント</a></li>
       </ul>
     </nav>
     <button class="hd__burger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mnav">
@@ -493,11 +513,10 @@ a{color:inherit}
 <nav class="mnav" id="mnav" aria-label="モバイルメニュー">
   <ul class="mnav__list">
     <li><a href="#about">ワロワロについて</a></li>
-    <li><a href="#system">システム</a></li>
-    <li><a href="#cast">キャスト</a></li>
+    <li><a href="#system">料金・お得情報</a></li>
+    <li><a href="#event">イベント</a></li>
     <li><a href="#access">アクセス</a></li>
     <li><a href="#sns">SNS</a></li>
-    <li><a href="#event">イベント</a></li>
     <li class="mnav__tel"><a href="tel:0265967880">📞 0265-96-7880</a></li>
   </ul>
 </nav>
@@ -536,7 +555,7 @@ a{color:inherit}
         <div class="reason">
           <span class="reason__no">01</span>
           <h3 class="reason__ttl">明朗会計</h3>
-          <p class="reason__txt"><span class="ph">表示料金以外は</span><span class="ph">いただきません。</span><span class="ph">90分は</span><span class="ph">男性5,500円・</span><span class="ph">女性3,300円</span><span class="ph">（税・サービス料込み）。</span><span class="ph">追加は</span><span class="ph">延長やご指名など、</span><span class="ph">頼んだ分だけ。</span><span class="ph">会計で驚くことは</span><span class="ph">ありません。</span></p>
+          <p class="reason__txt"><span class="ph">90分 / 男性 5,500円・</span><span class="ph">女性 3,300円</span><span class="ph">（税・サービス料込み）。</span><span class="ph">指名料や</span><span class="ph">キャストドリンクは</span><span class="ph">別途いただきますが、</span><span class="ph">頼んだ分だけ。</span><span class="ph">会計で驚くことは</span><span class="ph">ありません。</span><span class="ph">また、</span><span class="ph">3名様以上の</span><span class="ph">ご来店で</span><span class="ph">お一人様1,000円引きの</span><span class="ph">団体割引も</span><span class="ph">ございます。</span></p>
         </div>
         <div class="reason">
           <span class="reason__no">02</span>
@@ -568,7 +587,7 @@ a{color:inherit}
         <div class="feat__body">
           <span class="feat__no">01 &nbsp;Show Time</span>
           <h3 class="feat__ttl">本格ショータイムが1日3回</h3>
-          <p class="feat__txt"><span class="ph">フィリピン人キャストによる</span><span class="ph">歌とダンスのステージを、</span><span class="ph">毎日3回開催。</span><span class="ph">生の歌声と</span><span class="ph">華やかな衣装で</span><span class="ph">店内が一気に</span><span class="ph">盛り上がります。</span></p>
+          <p class="feat__txt"><span class="ph">フィリピン人キャストによる</span><span class="ph">歌とダンスのステージ。</span><span class="ph">生の歌声と</span><span class="ph">華やかな衣装で、</span><span class="ph">店内が一気に</span><span class="ph">盛り上がります。</span></p>
           <ul class="times"><li>20:30〜21:00</li><li>22:00〜22:30</li><li>23:30〜24:00</li></ul>
         </div>
       </article>
@@ -593,33 +612,12 @@ a{color:inherit}
     </div>
   </section>
 
-  <!-- ===== お得情報 ===== -->
-  <section class="sec" id="event">
-    <div class="wrap">
-      <div class="sec__head">
-        <span class="en">Special Offer</span>
-        <h2 class="ttl">お得情報</h2>
-        <p class="lead"><span class="ph">毎月8日は</span><span class="ph">「ワロワロの日」。</span><span class="ph">団体割引も</span><span class="ph">あります。</span></p>
-      </div>
-
-      <div class="offers">
-        <div class="offer">
-          <span class="offer__tag">Every 8th</span>
-          <h3 class="offer__ttl">88（ワロワロ）の日</h3>
-          <strong class="offer__num">2,750<small>円 / 90分</small></strong>
-          <p class="offer__note">初回セット料金が半額<br>※8日が金・土の場合は翌日曜に振替となります。</p>
-        </div>
-        <div class="offer">
-          <span class="offer__tag">Group</span>
-          <h3 class="offer__ttl">男性3名以上のご来店で</h3>
-          <strong class="offer__num">1,000<small>円 OFF</small></strong>
-          <p class="offer__note">お一人様あたりの割引額です。<br>ご予約時にお申し付けください。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 料金 ===== -->
+  <!-- ===== 料金・お得情報 =====
+       料金表（90分＋延長60分）は先方のご指示により修正前の形に戻している。
+       そのうえで打ち合わせでの追記2点を反映：
+       ・料金表の直下に「※指名料・キャストドリンクは別途かかります」を置く
+       ・団体割引（3名様以上で1,000円引き）を料金エリア内に置く
+       支払い方法はテキスト表記のまま（カード会社ロゴ等は追加しない）。 -->
   <section class="sec sec--paper" id="system">
     <div class="wrap">
       <div class="sec__head">
@@ -639,28 +637,79 @@ a{color:inherit}
         </tbody>
       </table>
 
+      <!-- 1行目が打ち合わせでの追記分。金額の直下に置くこと -->
       <ul class="notes">
+        <li>※指名料・キャストドリンクは別途かかります</li>
         <li>指名料：2,000円</li>
-        <li>レディースドリンク：1,000円</li>
+        <li>キャストドリンク：1,000円</li>
         <li>各種クレジットカードがご利用いただけます。</li>
       </ul>
+
+      <h3 class="sub-ttl">お得情報</h3>
+      <div class="offers">
+        <!-- B-4：団体割引 -->
+        <div class="offer">
+          <span class="offer__tag">Group</span>
+          <h4 class="offer__ttl">団体割引 ／ 3名様以上</h4>
+          <strong class="offer__num">1,000<small>円 引き</small></strong>
+          <p class="offer__note">お一人様あたりの割引額です。<br>ご予約時にお申し付けください。</p>
+        </div>
+
+        <!-- 毎月8日「88の日」。B-5で名称は「88の日」と確認済み（2026-08-24）。
+             【2026-08-27 修正】「初回セット料金が半額」の注記は削除し、「男女とも一律」
+             と明記する。半額表記だと男性2,750円／女性1,650円と読めてしまい、実際の
+             「男女とも一律2,750円」と食い違うため。 -->
+        <div class="offer">
+          <span class="offer__tag">Every 8th</span>
+          <h4 class="offer__ttl">88（ワロワロ）の日</h4>
+          <strong class="offer__num">2,750<small>円 / 90分</small></strong>
+          <p class="offer__note"><strong>男女とも一律</strong><br><span class="ph">※8日が金・土の場合は</span><span class="ph">翌日曜に振替となります。</span></p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ===== キャスト ===== -->
-  <section class="sec" id="cast" style="padding-bottom:120px">
+  <!-- ===== イベント情報 =====
+       FIX_LIST A-2／D-1 対応。旧セクションを同じ位置で置き換えたもの。
+
+       【重要】キャスト個人の写真・プロフィール、および席に着いている写真は掲載しない。
+               入管審査に関わるため、写真を戻す場合は必ず先方確認を取ること。
+
+       【毎月の差し替え手順】
+        1. Canva等で作った告知画像を、幅800pxを目安に書き出す（縦横比は自由。
+           画像は切り抜かず全体が表示されるので、チラシをそのまま使ってよい）
+        2. images/event/ に保存する（例：images/event/2026-10-halloween.jpg）
+        3. 下の <article class="ev"> ブロックの ①img src ②img alt ③width/height
+           ④time datetime ⑤日付テキスト ⑥曜日 ⑦タイトル ⑧説明文 を書き換える
+           （複数日開催のときは <span class="ev__day"> の行を必要な日数ぶん複製する。
+            1日だけのときは1行に減らす）
+        4. 掲載が終わったイベントは <article> ごと削除する
+        5. 件数は1〜3件が目安（PCで最大3列、スマホで縦1列に並ぶ）
+        6. 画像が未入稿のときは images/event/placeholder.svg を指定しておくと
+           「画像準備中」の枠が表示される -->
+  <section class="sec" id="event" style="padding-bottom:120px">
     <div class="wrap">
       <div class="sec__head">
-        <span class="en">Cast</span>
-        <h2 class="ttl">キャスト紹介</h2>
-        <p class="lead"><span class="ph">明るく元気な</span><span class="ph">フィリピン人キャストが</span><span class="ph">お待ちしています。</span></p>
+        <span class="en">Event</span>
+        <h2 class="ttl">イベント情報</h2>
+        <p class="lead"><span class="ph">季節の催しや</span><span class="ph">パーティーのご案内を</span><span class="ph">こちらに掲載します。</span></p>
       </div>
-    </div>
-    <div class="casts">
-      <figure class="cast"><img src="images/cast/placeholder.jpg" alt="キャスト（写真準備中）" loading="lazy"><figcaption>Coming Soon<span>写真準備中</span></figcaption></figure>
-      <figure class="cast"><img src="images/cast/placeholder.jpg" alt="キャスト（写真準備中）" loading="lazy"><figcaption>Coming Soon<span>写真準備中</span></figcaption></figure>
-      <figure class="cast"><img src="images/cast/placeholder.jpg" alt="キャスト（写真準備中）" loading="lazy"><figcaption>Coming Soon<span>写真準備中</span></figcaption></figure>
-      <figure class="cast"><img src="images/cast/placeholder.jpg" alt="キャスト（写真準備中）" loading="lazy"><figcaption>Coming Soon<span>写真準備中</span></figcaption></figure>
+
+      <div class="events">
+        <article class="ev">
+          <div class="ev__img"><img src="images/event/2026-09-tsukimi.jpg" alt="十五夜お月見 バニーガールイベントの告知画像" loading="lazy" width="800" height="1200"></div>
+          <div class="ev__body">
+            <p class="ev__date">
+              <span class="ev__day"><time datetime="2026-09-23">2026.09.23</time><span class="ev__dow">水</span></span>
+              <span class="ev__day"><time datetime="2026-09-24">2026.09.24</time><span class="ev__dow">木</span></span>
+            </p>
+            <h3 class="ev__ttl">十五夜お月見<br>バニーガールイベント</h3>
+            <p class="ev__txt"><span class="ph">お得な前売りチケットを</span><span class="ph">販売中です。</span><br><span class="ph">90分 5,000円</span><br><span class="ph">welcome生ビール・</span><span class="ph">お月見だんご付き</span><br><span class="ph">※指名料・キャストドリンクは</span><span class="ph">別途かかります</span></p>
+          </div>
+        </article>
+      </div>
+
+      <p class="events__note">イベントは月ごとに更新します。最新のご案内は Instagram・TikTok でもお知らせしています。</p>
     </div>
   </section>
 
@@ -718,11 +767,10 @@ a{color:inherit}
     <img class="ft__logo" src="images/logo-a-full.png" alt="Up Stage 88">
     <ul class="ft__nav">
       <li><a href="#about">ワロワロについて</a></li>
-      <li><a href="#system">システム</a></li>
-      <li><a href="#cast">キャスト</a></li>
+      <li><a href="#system">料金・お得情報</a></li>
+      <li><a href="#event">イベント</a></li>
       <li><a href="#access">アクセス</a></li>
       <li><a href="#sns">SNS</a></li>
-      <li><a href="#event">イベント</a></li>
     </ul>
     <p class="ft__meta">
       フィリピンクラブ Up Stage 88<br>

@@ -1,5 +1,6 @@
 # 公開するのは初稿LP（index.html）と、そこで実際に使う画像だけ。
-# 提案用モックアップ・旧マルチページ版・未使用画像はローカルに残すが公開しない。
+# 提案用モックアップと旧マルチページ版は 2026-08-05 に削除済み。
+# 未使用のロゴ候補・素材画像はローカルに残すが公開しない。
 /*
 !/.gitignore
 !/index.html
@@ -18,3 +19,6 @@
 !/images/cast/
 /images/cast/*
 !/images/cast/placeholder.jpg
+!/images/event/
+/images/event/*
+!/images/event/2026-09-tsukimi.jpg
