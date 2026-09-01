@@ -153,7 +153,8 @@ a{color:inherit}
 .reasons{display:grid;grid-template-columns:1fr;gap:0}
 .reason{padding:44px 0;border-top:1px solid rgba(90,124,150,.12);text-align:center}
 .reason:last-child{border-bottom:1px solid rgba(90,124,150,.12)}
-.reason__no{font-family:var(--serif);font-size:34px;font-weight:500;letter-spacing:.1em;color:#0fb5c4;display:block;line-height:1}
+/* 番号は装飾。見出し（.reason__ttl）より控えめにする。スマホは max-width:767px で22pxに落とす */
+.reason__no{font-family:var(--serif);font-size:28px;font-weight:500;letter-spacing:.1em;color:#0fb5c4;display:block;line-height:1}
 .reason__ttl{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:.1em;margin:16px 0 12px}
 .reason__txt{margin:0;font-size:15px;line-height:2.1;color:var(--text-dark-weak);text-wrap:balance}
 .nb{white-space:nowrap}
@@ -309,6 +310,8 @@ a{color:inherit}
   /* メタ情報：中点区切りの折り返しをやめ、1項目ずつ中央に積んでバランスよく */
   .hero__meta{flex-direction:column;gap:5px;margin-top:20px}
   .hero__meta li{border-left:0;padding:0}
+  /* 3つの理由：スマホでは番号が相対的に大きく見えるため、さらに一段落とす */
+  .reason__no{font-size:22px}
   .feat__body{padding:48px 24px}
   .price th,.price td{padding:20px 6px}
   .price .num{font-size:24px}
