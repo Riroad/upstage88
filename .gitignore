@@ -14,6 +14,9 @@
 !/images/feat-party.jpg
 !/images/feat-showtime.jpg
 !/images/hero-cast.jpg
+# 2026-09-02 SNSセクションの背景に使用
+!/images/sns-instagram.jpg
+!/images/sns-tiktok.jpg
 !/images/logo-a-full.png
 !/images/logo-b-header.png
 !/images/cast/
@@ -22,3 +25,8 @@
 !/images/event/
 /images/event/*
 !/images/event/2026-09-tsukimi.jpg
+
+# 2026-09-02 SNSセクション（TikTok枠）の背景動画
+!/videos/
+/videos/*
+!/videos/sns-tiktok.mp4

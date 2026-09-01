@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>フィリピンクラブ Up Stage 88｜長野県駒ヶ根市のフィリピンパブ</title>
-<meta name="description" content="長野県駒ヶ根市のフィリピンクラブ「Up Stage 88（アップステージ ワロワロ）」。最大80名の大型店で本格ショータイムが1日3回。90分 / 男性 5,500円・女性 3,300円（税・サービス料込み）。カード利用可。団体割引あり。初めてでも安心です。">
+<!-- 【2026-09-02 変更】本文にある「長野県最大級」をタイトル・説明文・OGP・ヒーローに展開。
+     既存表現をそのまま流用するに留め、「No.1」等の断定表現は使わない -->
+<title>フィリピンクラブ Up Stage 88｜長野県最大級・駒ヶ根のフィリピンパブ</title>
+<meta name="description" content="長野県駒ヶ根市のフィリピンクラブ「Up Stage 88（アップステージ ワロワロ）」。長野県最大級・最大80名の大型店で本格ショータイムが1日3回。90分 / 男性 5,500円・女性 3,300円（税・サービス料込み）。カード利用可。団体割引あり。初めてでも安心です。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="フィリピンクラブ Up Stage 88">
-<meta property="og:title" content="フィリピンクラブ Up Stage 88｜長野県駒ヶ根市のフィリピンパブ">
-<meta property="og:description" content="熱く、美しい、フィリピンの夜を。駒ヶ根｜最大80名・ショータイム1日3回の大型フィリピンクラブ。">
+<meta property="og:title" content="フィリピンクラブ Up Stage 88｜長野県最大級・駒ヶ根のフィリピンパブ">
+<meta property="og:description" content="熱く、美しい、フィリピンの夜を。駒ヶ根｜長野県最大級・最大80名・ショータイム1日3回のフィリピンクラブ。">
 <meta property="og:url" content="https://riroad.github.io/upstage88/">
 <meta property="og:image" content="https://riroad.github.io/upstage88/images/hero-cast.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -95,15 +97,40 @@ a{color:inherit}
 .gnav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;
   background:var(--gold);transition:right .35s ease}
 .gnav a:hover::after{right:0}
+/* 【2026-09-02 追加】PC用の電話CTA。
+   これまで .btn はCSSだけ書かれてHTMLで一度も使われておらず、PCには行動導線が無かった。
+   ボタンではなくヘッダー内の常時表示テキストとして扱うため、.btn は使わない。
+
+   表示は1024px以上に限定している。768〜1023pxではロゴ＋グローバルナビだけで
+   ヘッダーの横幅がすでに埋まっており、電話を足すとロゴ画像が潰れてしまうため
+   （実測：768pxでロゴ幅 145px → 66px）。767px以下は既存の追従CTAバーがあるので不要。
+
+   【2026-09-02 変更】番号を並べただけのテキストリンクでは押せると分からないため、
+   塗りのCTAボタンにした。新しいボタンスタイルは作らず、既存の .btn / .btn--fill を使い、
+   ヘッダー（高さ92px）に収まるよう寸法だけを詰めている。
+   ラベルは「電話予約」のみ（番号は表示しない。追従CTAバーの表記と揃えている）。
+   番号は tel: リンクと、アクセスセクションの店舗情報・フッターに記載がある。 */
+/* .btn はこの下で定義されるため、同じ詳細度だと .btn の min-height:58px / padding:0 40px に
+   負ける。.hd を前置して詳細度を上げ、ヘッダー用の寸法を確実に効かせる */
+/* display:none も .btn の display:inline-flex に負けるため、同じ .hd 付きの塊にまとめる */
+.hd .hd__tel{
+  display:none;
+  min-height:46px;padding:0 30px;
+  font-size:13px;letter-spacing:.16em;white-space:nowrap;
+}
 
 /* ---------- ヒーロー ---------- */
 .hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;z-index:-2;
-  filter:saturate(.92) contrast(1.06) brightness(.82)}
+  /* 【2026-09-02 変更】brightness .82→.95 / saturate .92→1.0。
+     見出しの「熱く、美しい」に対して写真が沈んでいたため、減光をやめて写真そのものを見せる。
+     暗くして読ませるのではなく、下部オーバーレイと text-shadow で可読性を確保する方針に変更 */
+  filter:saturate(1) contrast(1.04) brightness(.95)}
+/* 【2026-09-02 変更】全面がけの radial-gradient を廃止。
+   上部〜中央は透過し、下部だけを濃くする。写真の主役（人物）が沈まないようにするため */
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;
   background:
-    radial-gradient(120% 80% at 50% 42%, rgba(9,42,66,.15) 0%, rgba(9,42,66,.82) 100%),
-    linear-gradient(180deg, rgba(9,42,66,.75) 0%, rgba(9,42,66,.25) 35%, rgba(9,42,66,.92) 100%)}
+    linear-gradient(180deg, rgba(9,42,66,.35) 0%, rgba(9,42,66,0) 30%, rgba(9,42,66,0) 45%, rgba(9,42,66,.85) 100%)}
 .hero__in{position:relative;padding:120px 24px 150px}
 .hero__brand{font-family:var(--latin);font-size:clamp(13px,2.6vw,15px);letter-spacing:.5em;color:var(--gold);margin:0 0 34px;text-transform:uppercase}
 .hero__catch{
@@ -228,13 +255,33 @@ a{color:inherit}
 .ev__txt{margin:0;font-size:13.5px;line-height:1.95;color:var(--text-weak);text-wrap:pretty}
 .events__note{margin:26px 0 0;font-size:13px;line-height:1.9;color:var(--text-weak);text-align:center;letter-spacing:.04em;text-wrap:balance}
 
-/* SNS：罫線で仕切った2枠。ホバーで金に反転させるだけの静かな作り */
+/* SNS：罫線で仕切った2枠。枠全体が1つのリンク（元の構成）。
+   【2026-09-02 変更】文字だけで枠の中が空いていたため、背景に実際の投稿を敷いた。
+   TikTokは投稿動画、Instagramは投稿写真。どちらも「主役は文字」なので、
+   彩度を落として明るく飛ばし、さらに白いスクリーンを重ねてから文字を乗せている。 */
 .sns{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
 .sns a{
-  background:var(--ink);padding:52px 28px;text-align:center;text-decoration:none;display:block;
+  position:relative;overflow:hidden;isolation:isolate;
+  background:var(--ink);padding:52px 28px;text-align:center;text-decoration:none;
+  display:grid;place-content:center;min-height:clamp(200px,24vw,280px);
   transition:background .45s ease,color .45s ease;
 }
-.sns a:hover{background:rgba(15,181,196,.07)}
+/* 背景メディア。負のz-indexなので、a自身の背景色の上・文字の下に入る
+   （a に isolation:isolate があるので、この重ね順はこの枠の中だけで完結する） */
+.sns__media{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+  /* 彩度を落とし、わずかにぼかす。人物の細部が残っていると文字と competing するため、
+     「何が写っているかは分かるが、読むのは文字」という状態に落とす */
+  filter:saturate(.45) brightness(1.14) blur(1.5px);
+  transform:scale(1.03); /* blur で縁が透けるのを防ぐ */
+  transition:transform 1.2s ease;
+}
+/* 白いスクリーン。文字の可読性はこの1枚で調整する（メディア側は触らない） */
+.sns a::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:rgba(255,255,255,.72);transition:background .45s ease}
+/* ホバー：スクリーンを薄くして写真・動画を少しだけ前に出す */
+.sns a:hover::before{background:rgba(255,255,255,.58)}
+.sns a:hover .sns__media{transform:scale(1.07)}
 .sns__name{font-family:var(--latin);font-size:clamp(22px,3vw,30px);letter-spacing:.3em;color:var(--gold-l);display:block}
 .sns__id{display:block;margin-top:14px;font-size:13px;letter-spacing:.12em;color:var(--text-weak)}
 .sns__note{display:block;margin-top:18px;font-size:11px;letter-spacing:.22em;color:var(--gold)}
@@ -271,6 +318,8 @@ a{color:inherit}
 
 @media (min-width:768px){
   .wrap{padding-inline:40px}
+  /* 【2026-09-02 追加】ロゴは左、ナビ＋電話は右にまとめる（電話が右端） */
+  .hd__in>nav{margin-left:auto}
   .sec{padding-block:160px}
   .reasons{grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(90,124,150,.12);
     border-top:1px solid rgba(90,124,150,.12);border-bottom:1px solid rgba(90,124,150,.12)}
@@ -285,17 +334,32 @@ a{color:inherit}
   .events{grid-template-columns:repeat(auto-fit,minmax(260px,340px));justify-content:center;gap:32px}
   .info>div{grid-template-columns:180px 1fr;gap:24px;align-items:baseline;padding:24px 0}
   .map{height:420px}
+  /* 【2026-09-02 変更】セクションの継ぎ目の空白調整。
+     一律に詰めるのではなく、下端が「締まっている」セクションだけ下余白を落とす。
+     ・#system：お得情報のカードが枠で閉じているため、その下に160pxは空きすぎ
+     ・#sns   ：枠が罫線で閉じているため、下に160pxは空きすぎ
+     いずれも継ぎ目の実測 320px → 240px。
+     写真が全幅で入る「魅力」の前後は、写真自体が区切りになるので既定のまま触っていない */
+  #system{padding-bottom:120px}
+  #access{padding-top:120px}
   .cta{display:none}
   body{padding-bottom:0}
   .mobile-only{display:none}
   .pc-only{display:block}
+}
+/* 【2026-09-02 追加】ヘッダーの電話CTAはロゴが潰れない1024px以上でのみ表示する */
+@media (min-width:1024px){
+  .hd .hd__tel{display:inline-flex}
 }
 @media (max-width:767px){
   .gnav{display:none}
     .hd__logo img{height:46px}
   body{padding-bottom:80px}  /* 追従CTAバーの実高に合わせる */
   /* ヒーロー：トップ画像は"引き"で全体を見せる。写真をバナーとして上に置き、
-     文言＋電話CTAはその下のネイビー面に。SCROLLはCTAに重なるため非表示 */
+     文言＋電話CTAはその下のネイビー面に。SCROLLはCTAに重なるため非表示
+     【2026-09-02】一度「写真の上に文字」の全画面型へ変更したが、横長の集合写真では
+     375px幅で左右が大きく切れて全員が写らないため、ユーザー指示によりこの形に戻した。
+     写真を切らずに全体を見せることを優先する。 */
   .hero{min-height:auto;display:block;overflow:visible;padding-top:78px;
         background:linear-gradient(180deg,#0a1c30 0%,#0e2a4d 100%)}
   .hero img{position:static;width:100%;height:auto;object-fit:contain}
@@ -304,6 +368,8 @@ a{color:inherit}
   .hero__scroll{display:none}
   .hero__name{margin-top:16px}
   .hero__sub{margin-top:8px}
+  /* 文字はネイビーの面に乗るため、写真用の影は不要（にじんで見えるので消す） */
+  .hero__catch,.hero__name,.hero__brand,.hero__sub,.hero__meta,.hero__name small{text-shadow:none}
   /* 「フィリピンの夜を。」が2行に割れて「を。」が孤立するため、
      スマホのみ級数と字送りを詰める。padding-left は字送りぶんの
      視覚的な中央合わせなので、字送りに合わせて縮める */
@@ -327,10 +393,19 @@ a{color:inherit}
 
 /* --- ヒーローだけは写真の上なので白文字を維持する --- */
 .hero{color:#fff}
-.hero img{filter:saturate(1.06) contrast(1.03) brightness(.9)}
+/* 【2026-09-02 変更】ライト版の再定義も同じ方針に揃える。
+   ここは上の基本版より後に書かれているため、実際に効くのはこちら側。両方を必ず揃えること */
+.hero img{filter:saturate(1.05) contrast(1.03) brightness(.96)}
 .hero::after{background:
-  radial-gradient(120% 80% at 50% 42%, rgba(9,42,66,.10) 0%, rgba(9,42,66,.74) 100%),
-  linear-gradient(180deg, rgba(9,42,66,.6) 0%, rgba(9,42,66,.16) 35%, rgba(9,42,66,.9) 100%)}
+  linear-gradient(180deg, rgba(9,42,66,.35) 0%, rgba(9,42,66,0) 30%, rgba(9,42,66,0) 45%, rgba(9,42,66,.85) 100%)}
+/* 【2026-09-02 追加】オーバーレイを下部だけにしたぶん、中央の文字は写真に直接乗る。
+   オーバーレイを濃く戻さず、影だけで可読性を確保する。
+   大きな見出しは広いぼかしで足りるが、小さい文字は人物の上に重なると沈むため、
+   にじまない範囲で密着した影を重ねている */
+.hero__catch,.hero__name{
+  text-shadow:0 1px 4px rgba(9,42,66,.6), 0 2px 18px rgba(9,42,66,.72), 0 0 46px rgba(9,42,66,.5)}
+.hero__brand,.hero__sub,.hero__meta,.hero__scroll,.hero__name small{
+  text-shadow:0 0 2px rgba(9,42,66,.9), 0 1px 4px rgba(9,42,66,.85), 0 0 22px rgba(9,42,66,.65)}
 .hero__brand{color:#8fe6f0}
 .hero__catch em{color:#ff9ec4}
 .hero__name{color:#fff}
@@ -346,11 +421,12 @@ a{color:inherit}
 .hd .gnav a{color:#fff}
 .hd.is-scrolled{background:rgba(255,255,255,.95)}
 .hd.is-scrolled .gnav a{color:var(--text)}
+/* 【2026-09-02 変更】電話CTAは .btn--fill の塗り（ティール→ブルー／白文字）をそのまま使う。
+   写真の上でもスクロール後の白背景でも同じ見え方になるので、状態ごとの文字色指定は不要 */
 .gnav a::after{background:var(--accent)}
 
 /* --- 黒く塗っていた面を白に。区切りは1px罫線のまま --- */
 .offer,.sns a{background:#fff}
-.sns a:hover{background:var(--paper)}
 .offer__num{color:var(--accent)}
 .offer__note,.sns__id{color:var(--text-weak)}
 .ev{background:#fff}
@@ -455,7 +531,7 @@ a{color:inherit}
   "@id": "https://riroad.github.io/upstage88/#store",
   "name": "Up Stage 88",
   "alternateName": "アップステージ ワロワロ",
-  "description": "長野県駒ヶ根市のフィリピンクラブ。最大80名の大型店で、フィリピン人キャストによる本格ショータイムを1日3回開催。90分 / 男性 5,500円・女性 3,300円（税・サービス料込み）。",
+  "description": "長野県駒ヶ根市のフィリピンクラブ。長野県最大級・最大80名の大型店で、フィリピン人キャストによる本格ショータイムを1日3回開催。90分 / 男性 5,500円・女性 3,300円（税・サービス料込み）。",
   "url": "https://riroad.github.io/upstage88/",
   "image": "https://riroad.github.io/upstage88/images/hero-cast.jpg",
   "telephone": "+81-265-96-7880",
@@ -501,6 +577,8 @@ a{color:inherit}
         <li><a href="#sns">SNS</a></li>
       </ul>
     </nav>
+    <!-- 【2026-09-02 追加】PC用の電話予約CTA。1024px未満では非表示（理由はCSS側 .hd__tel のコメント参照） -->
+    <a class="btn btn--fill hd__tel" href="tel:0265967880">電話予約</a>
     <button class="hd__burger" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="mnav">
       <span></span><span></span><span></span>
     </button>
@@ -527,7 +605,8 @@ a{color:inherit}
     <div class="hero__in">
       <h1 class="hero__catch">熱く、<em>美しい</em>、<br>フィリピンの夜を。</h1>
       <p class="hero__name">駒ヶ根のフィリピンクラブ<br>Up Stage 88<small>（アップステージ ワロワロ）</small></p>
-      <p class="hero__sub">最大80名・ショータイムのある大型店</p>
+      <!-- 【2026-09-02 変更】「長野県最大級」を追記。375pxで不自然に折り返さないよう .ph で文節を区切る -->
+      <p class="hero__sub"><span class="ph">長野県最大級・</span><span class="ph">最大80名・</span><span class="ph">ショータイムのある大型店</span></p>
       <ul class="hero__meta">
         <li>90分 飲み放題</li>
         <li>ショータイム1日3回</li>
@@ -708,8 +787,17 @@ a{color:inherit}
     </div>
   </section>
 
-  <!-- ===== SNS ===== -->
-  <section class="sec" id="sns" style="padding-top:0">
+  <!-- ===== SNS =====
+       枠全体が1つのリンク。背景に実際の投稿を敷いている。
+       ・TikTok    : videos/sns-tiktok.mp4（提供動画 export_1788296116005.MOV を
+                     640×360 / 8秒 / 2.3MB に変換したもの。muted + loop + playsinline で自動再生）
+       ・Instagram : images/sns-instagram.jpg
+       背景メディアは装飾なので alt="" / aria-hidden="true"。読み上げには枠のリンク名だけが出る。
+       動画が再生できない環境（データセーバー、自動再生停止など）では poster の静止画が出る。
+
+       【差し替え手順】上記2ファイルを同名で置き換える。
+       ファイル名を変える場合は .gitignore の許可行も合わせて直すこと（ホワイトリスト方式のため）。 -->
+  <section class="sec" id="sns" style="padding-top:0;padding-bottom:120px">
     <div class="wrap">
       <div class="sec__head">
         <span class="en">Follow us</span>
@@ -719,11 +807,16 @@ a{color:inherit}
 
       <div class="sns">
         <a href="https://www.tiktok.com/@upstage_walowalo" target="_blank" rel="noopener">
+          <video class="sns__media" src="videos/sns-tiktok.mp4" poster="images/sns-tiktok.jpg"
+                 autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
           <span class="sns__name">TikTok</span>
-          <span class="sns__id">@upstage_walowalo</span>        </a>
+          <span class="sns__id">@upstage_walowalo</span>
+        </a>
         <a href="https://www.instagram.com/upstage88_walowalo/" target="_blank" rel="noopener">
+          <img class="sns__media" src="images/sns-instagram.jpg" alt="" loading="lazy">
           <span class="sns__name">Instagram</span>
-          <span class="sns__id">@upstage88_walowalo</span>        </a>
+          <span class="sns__id">@upstage88_walowalo</span>
+        </a>
       </div>
     </div>
   </section>
