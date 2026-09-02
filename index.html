@@ -255,11 +255,14 @@ a{color:inherit}
 .ev__txt{margin:0;font-size:13.5px;line-height:1.95;color:var(--text-weak);text-wrap:pretty}
 .events__note{margin:26px 0 0;font-size:13px;line-height:1.9;color:var(--text-weak);text-align:center;letter-spacing:.04em;text-wrap:balance}
 
-/* SNS：罫線で仕切った2枠。枠全体が1つのリンク（元の構成）。
+/* SNS：2枠。枠全体が1つのリンク（元の構成）。
    【2026-09-02 変更】文字だけで枠の中が空いていたため、背景に実際の投稿を敷いた。
    TikTokは投稿動画、Instagramは投稿写真。どちらも「主役は文字」なので、
-   彩度を落として明るく飛ばし、さらに白いスクリーンを重ねてから文字を乗せている。 */
-.sns{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+   彩度を落として明るく飛ばし、さらに白いスクリーンを重ねてから文字を乗せている。
+   【2026-09-03 変更】枠線と文字を各アプリのブランドカラーに変更したため、
+   罫線で連結した構成をやめ、独立した2枠にした（1本の線に2色は入れられないため）。
+   ブランドカラーの指定は下部の「SNS：ブランドカラー」ブロックにまとめてある。 */
+.sns{display:grid;grid-template-columns:1fr;gap:14px}
 .sns a{
   position:relative;overflow:hidden;isolation:isolate;
   background:var(--ink);padding:52px 28px;text-align:center;text-decoration:none;
@@ -330,7 +333,7 @@ a{color:inherit}
   .feat__img{height:100%;min-height:520px}
   .feat__body{padding:0 64px}
   .offers{grid-template-columns:1fr 1fr}
-  .sns{grid-template-columns:1fr 1fr}
+  .sns{grid-template-columns:1fr 1fr;gap:20px}
   .events{grid-template-columns:repeat(auto-fit,minmax(260px,340px));justify-content:center;gap:32px}
   .info>div{grid-template-columns:180px 1fr;gap:24px;align-items:baseline;padding:24px 0}
   .map{height:420px}
@@ -479,6 +482,44 @@ a{color:inherit}
 .cta a+a{border:1px solid rgba(15,181,196,.38);border-left:0}
 .cta a:first-child span{color:rgba(230,76,139,.8)}
 .cta a+a span{color:rgba(15,181,196,.9)}
+
+/* --- SNS：ブランドカラー（2026-09-03 追加）------------------------------
+   枠線と文字を、Instagram / TikTok それぞれの公式カラーに合わせる。
+   ・Instagram：公式グラデーション（橙→桃→紫→青）を枠線とロゴ文字の両方に使う
+   ・TikTok   ：ロゴ文字・ハンドル名・枠線をすべて黒で統一する
+   背景は写真・動画なので、色の付いた文字が沈まないよう白スクリーンを
+   .72→.80（ホバー時 .58→.68）に上げている。
+   「可読性はスクリーン1枚で調整し、メディア側は触らない」という元の方針は維持。
+   ハンドル名（@〜）の色は各枠の --sns-c で切り替える。
+   Instagram はブランド色を濃くした版、TikTok はロゴと同じ黒。 */
+.sns a{border:2px solid var(--line)}
+.sns a::before{background:rgba(255,255,255,.8)}
+.sns a:hover::before{background:rgba(255,255,255,.68)}
+.sns__id{color:var(--sns-c,var(--text-weak))}
+
+/* TikTok：枠線・ロゴ文字・ハンドル名をすべて黒で統一する。
+   【2026-09-03 変更】当初はシアン／レッドをずらして重ねる公式ロゴ寄りの表現にしていたが、
+   指示により黒一色にした。枠線のホバーも黒のままなので色の切り替えは行わない
+   （ホバーの反応は、下地のスクリーンが薄くなって写真・動画が出てくることで伝える）。 */
+.sns a.sns__item--tiktok{--sns-c:#111;border-color:#111}
+.sns__item--tiktok .sns__name{color:#111}
+
+/* Instagram：border-image でグラデーションの枠線を作る（角丸が無いので破綻しない）。
+   border-image 非対応の環境では border-color の桃色がそのまま残る。
+   文字は background-clip:text で同じグラデーションを流す。
+   ただし公式の橙 #f58529 は白背景だと薄すぎるため、文字側だけ #d9631f に沈めている
+   （枠線は読ませる要素ではないので公式色のまま） */
+.sns a.sns__item--instagram{
+  --sns-c:#c13584;
+  border-color:#dd2a7b;
+  border-image:linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4) 1;
+}
+.sns__item--instagram .sns__name{
+  color:#dd2a7b;
+  background:linear-gradient(100deg,#d9631f 0%,#dd2a7b 35%,#8134af 72%,#515bd4 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
 
 /* ===== モバイル：ハンバーガーメニュー ===== */
 .hd__burger{display:none}
@@ -806,13 +847,13 @@ a{color:inherit}
       </div>
 
       <div class="sns">
-        <a href="https://www.tiktok.com/@upstage_walowalo" target="_blank" rel="noopener">
+        <a class="sns__item sns__item--tiktok" href="https://www.tiktok.com/@upstage_walowalo" target="_blank" rel="noopener">
           <video class="sns__media" src="videos/sns-tiktok.mp4" poster="images/sns-tiktok.jpg"
                  autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
           <span class="sns__name">TikTok</span>
           <span class="sns__id">@upstage_walowalo</span>
         </a>
-        <a href="https://www.instagram.com/upstage88_walowalo/" target="_blank" rel="noopener">
+        <a class="sns__item sns__item--instagram" href="https://www.instagram.com/upstage88_walowalo/" target="_blank" rel="noopener">
           <img class="sns__media" src="images/sns-instagram.jpg" alt="" loading="lazy">
           <span class="sns__name">Instagram</span>
           <span class="sns__id">@upstage88_walowalo</span>
