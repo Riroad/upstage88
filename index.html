@@ -992,6 +992,50 @@ a{color:inherit}
   mnav.addEventListener('click', function(e){ if(e.target.closest('a')) setOpen(false); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') setOpen(false); });
 })();
+
+// 【2026-09-05 追加】SNS：TikTok動画が静止画のままになる場合の再生補助
+// 端末側の一時的な要因（Safariのメモリ不足、省電力・省データ設定など）で最初の
+// 自動再生が失敗すると、autoplay属性があっても poster の静止画のまま固定されてしまう。
+// これまで再試行の仕組みがなく、ページを開き直すまで復帰しなかったため、
+// (1)枠が画面に入ったとき (2)画面を最初に操作したとき (3)ページに戻ってきたとき
+// の3つのきっかけで再生を試みる。原因そのものは端末側にあり解消できないが、
+// 訪問者から見える症状は自動的に回復する。
+(function(){
+  var v = document.querySelector('.sns__item--tiktok .sns__media');
+  if(!v) return;
+
+  // 「視差効果を減らす」設定の端末では動かさず、静止画のままにする
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    v.removeAttribute('autoplay');
+    return;
+  }
+
+  var tryPlay = function(){
+    var p = v.play();
+    // 端末が再生を拒否した場合。次のきっかけを待つだけなので、ここでは何もしない
+    if(p && p.catch) p.catch(function(){});
+  };
+
+  // (1) 枠が画面に入ったら再生し、外れたら止める（通信量と電池の節約にもなる）
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ e.isIntersecting ? tryPlay() : v.pause(); });
+    }, {threshold:.25}).observe(v);
+  }
+
+  // (2) 画面を最初に操作したとき。一度動けば十分なので、実行後にリスナーを外す
+  var kinds = ['touchstart','click','scroll'];
+  var once = function(){
+    tryPlay();
+    kinds.forEach(function(t){ window.removeEventListener(t, once); });
+  };
+  kinds.forEach(function(t){ window.addEventListener(t, once, {passive:true}); });
+
+  // (3) 他のアプリやタブから戻ってきたとき
+  document.addEventListener('visibilitychange', function(){
+    if(!document.hidden) tryPlay();
+  });
+})();
 </script>
 </body>
 </html>
