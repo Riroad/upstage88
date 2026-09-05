@@ -309,7 +309,10 @@ a{color:inherit}
      密着した影（2px / 6px）に絞る。下地は上の放射グラデーションで確保する。 */
   text-shadow:0 1px 2px rgba(255,255,255,.95), 0 0 6px rgba(255,255,255,.85);
 }
-.sns__name{font-family:var(--latin);font-size:clamp(22px,3vw,30px);letter-spacing:.3em;color:var(--gold-l);display:block}
+/* 【2026-09-05 変更】Cormorant Garamond の標準太さ(400)は字画が細く、明るい下地では
+   ロゴ名が沈む。読み込み済みの 600 に上げる（新たな通信は発生しない）。
+   TikTok枠にも同じ太さを適用し、2枠の見た目を揃える。 */
+.sns__name{font-family:var(--latin);font-size:clamp(22px,3vw,30px);font-weight:600;letter-spacing:.3em;color:var(--gold-l);display:block}
 .sns__id{display:block;margin-top:14px;font-size:13px;letter-spacing:.12em;color:var(--text-weak)}
 /* 【2026-09-04 変更】名前とハンドル名の間に「何が見られるか」の1行を入れたため、
    欧文の小さな装飾文字から日本語の本文向けに調整した。
@@ -574,10 +577,21 @@ a{color:inherit}
   border-image:linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4) 1;
 }
 .sns__item--instagram .sns__name{
-  color:#dd2a7b;
-  background:linear-gradient(100deg,#d9631f 0%,#dd2a7b 35%,#8134af 72%,#515bd4 100%);
+  /* 【2026-09-05 変更】橙 #d9631f と桃 #dd2a7b が明るい下地に対して沈まず、
+     ロゴ名が判読できなかった。実測したコントラスト比は橙3.07／桃3.76で、
+     基準の4.5を下回っていたため、色相と彩度は保ったまま明度だけ落として
+     橙4.54／桃4.54 に引き上げた。紫(5.80)と青(4.65)は基準を満たすので変更しない。
+     枠線は読ませる要素ではないため、公式色のまま残している。 */
+  color:#c8206c;
+  background:linear-gradient(100deg,#ac4f19 0%,#c8206c 35%,#8134af 72%,#515bd4 100%);
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;
+  /* 【2026-09-05 変更】この行だけ白い影を外す。background-clip:text は
+     「文字の形に切り抜いた背景」を見せる仕組みで、text-shadow はその上に描かれる。
+     そのため可読性のために足した白い影が、逆にロゴ名を白く覆って判読できなくしていた。
+     下地は放射グラデーションで確保しているので、この行に影は不要。
+     ベタ塗りの .sns__note / .sns__id / TikTokのロゴ名では影が有効なので残す。 */
+  text-shadow:none;
 }
 
 /* ===== モバイル：ハンバーガーメニュー ===== */
