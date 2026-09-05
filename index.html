@@ -286,16 +286,28 @@ a{color:inherit}
 }
 /* 白いスクリーン。背景を沈めすぎないよう薄くし、可読性は文字側の白い光で補う。
    同じ指定が下部の「SNS：ブランドカラー」ブロックにもあり、実際に効くのはそちら。
-   片方だけ変えても表示は変わらないので、必ず両方を同じ値に揃えること。 */
+   片方だけ変えても表示は変わらないので、必ず両方を同じ値に揃えること。
+   【2026-09-05 変更】一律 .58 の白スクリーンをやめ、中央だけ白い放射グラデーションにした。
+   一律だと「背景を見せる」と「文字を読ませる」が両立しないため。実測でInstagram枠は
+   TikTok枠より明るく（平均輝度 118 対 91）、白い text-shadow が効かず文字が溶けていた。
+   中央を厚く（.88）して文字の下地を確保し、外周を薄く（.34）して四隅で素材を見せる。 */
 .sns a::before{content:"";position:absolute;inset:0;z-index:-1;
-  background:rgba(255,255,255,.58);transition:background .45s ease}
-/* ホバー：スクリーンをさらに薄くして写真・動画を前に出す */
-.sns a:hover::before{background:rgba(255,255,255,.45)}
+  background:radial-gradient(ellipse 78% 62% at 50% 50%,
+    rgba(255,255,255,.88) 0%,
+    rgba(255,255,255,.74) 45%,
+    rgba(255,255,255,.34) 100%);transition:background .45s ease}
+/* ホバー：スクリーンをさらに薄くして写真・動画を前に出す（中央・外周とも一段下げる） */
+.sns a:hover::before{background:radial-gradient(ellipse 78% 62% at 50% 50%,
+    rgba(255,255,255,.80) 0%,
+    rgba(255,255,255,.64) 45%,
+    rgba(255,255,255,.22) 100%)}
 .sns a:hover .sns__media{transform:scale(1.07)}
 /* 【2026-09-05 追加】白スクリーンを薄くした分、文字の背後に白い光を敷いて可読性を確保する。
    文字色（TikTokの黒／Instagramのグラデーション）は変えず、下地だけを明るくする考え方。 */
 .sns__name,.sns__note,.sns__id{
-  text-shadow:0 1px 3px rgba(255,255,255,.92), 0 0 14px rgba(255,255,255,.78);
+  /* 【2026-09-05 変更】外側 14px のぼかしが文字の輪郭まで白く溶かしていたため、
+     密着した影（2px / 6px）に絞る。下地は上の放射グラデーションで確保する。 */
+  text-shadow:0 1px 2px rgba(255,255,255,.95), 0 0 6px rgba(255,255,255,.85);
 }
 .sns__name{font-family:var(--latin);font-size:clamp(22px,3vw,30px);letter-spacing:.3em;color:var(--gold-l);display:block}
 .sns__id{display:block;margin-top:14px;font-size:13px;letter-spacing:.12em;color:var(--text-weak)}
@@ -533,8 +545,15 @@ a{color:inherit}
    ハンドル名（@〜）の色は各枠の --sns-c で切り替える。
    Instagram はブランド色を濃くした版、TikTok はロゴと同じ黒。 */
 .sns a{border:2px solid var(--line)}
-.sns a::before{background:rgba(255,255,255,.58)}
-.sns a:hover::before{background:rgba(255,255,255,.45)}
+/* 【2026-09-05 変更】上部ブロックと同じ放射グラデーションに揃える。実際に効くのはこちら。 */
+.sns a::before{background:radial-gradient(ellipse 78% 62% at 50% 50%,
+    rgba(255,255,255,.88) 0%,
+    rgba(255,255,255,.74) 45%,
+    rgba(255,255,255,.34) 100%)}
+.sns a:hover::before{background:radial-gradient(ellipse 78% 62% at 50% 50%,
+    rgba(255,255,255,.80) 0%,
+    rgba(255,255,255,.64) 45%,
+    rgba(255,255,255,.22) 100%)}
 .sns__id{color:var(--sns-c,var(--text-weak))}
 
 /* TikTok：枠線・ロゴ文字・ハンドル名をすべて黒で統一する。
