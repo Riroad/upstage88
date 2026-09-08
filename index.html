@@ -241,24 +241,6 @@ a{color:inherit}
 .band__cap{position:absolute;inset:auto 0 0 0;padding:0 24px 48px;text-align:center;
   font-family:var(--serif);font-size:clamp(15px,2.4vw,20px);letter-spacing:.22em}
 
-/* イベント情報：正方形の告知画像＋日付＋タイトル。毎月1〜3件を差し替える枠 */
-/* 件数が2件でも空きマスが出ないよう、枠は各カードが持ち auto-fit で詰める */
-.events{display:grid;grid-template-columns:1fr;gap:24px;align-items:start}
-.ev{background:var(--ink);border:1px solid var(--line);display:block}
-/* チラシは日付や料金が端に入るため、切り抜かず全体を見せる（縦横比は画像なり） */
-.ev__img{overflow:hidden;background:var(--ink-3)}
-.ev__img img{width:100%;height:auto;transition:transform .8s ease}
-.ev:hover .ev__img img{transform:scale(1.04)}
-.ev__body{padding:30px 26px 36px;text-align:center}
-.ev__date{margin:0 0 14px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px 14px;
-  font-family:var(--latin);font-size:16px;letter-spacing:.18em;color:var(--gold-l)}
-.ev__day{display:inline-flex;align-items:center;gap:8px}
-.ev__dow{font-family:var(--sans);font-size:10.5px;letter-spacing:.06em;color:#fff;
-  background:var(--accent);border-radius:2px;padding:4px 8px;line-height:1}
-.ev__ttl{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:.08em;margin:0 0 12px;line-height:1.6}
-.ev__txt{margin:0;font-size:13.5px;line-height:1.95;color:var(--text-weak);text-wrap:pretty}
-.events__note{margin:26px 0 0;font-size:13px;line-height:1.9;color:var(--text-weak);text-align:center;letter-spacing:.04em;text-wrap:balance}
-
 /* SNS：2枠。枠全体が1つのリンク（元の構成）。
    【2026-09-02 変更】文字だけで枠の中が空いていたため、背景に実際の投稿を敷いた。
    TikTokは投稿動画、Instagramは投稿写真。どちらも「主役は文字」なので、
@@ -363,7 +345,6 @@ a{color:inherit}
      タブレット縦のため、「魅力」の2カラムは900px、「3つの理由」の3カラムは1100pxへ後ろ倒しした。 */
   .offers{grid-template-columns:1fr 1fr}
   .sns{grid-template-columns:1fr 1fr;gap:20px}
-  .events{grid-template-columns:repeat(auto-fit,minmax(260px,340px));justify-content:center;gap:32px}
   .info>div{grid-template-columns:180px 1fr;gap:24px;align-items:baseline;padding:24px 0}
   .map{height:420px}
   /* 【2026-09-02 変更】セクションの継ぎ目の空白調整。
@@ -864,46 +845,23 @@ a{color:inherit}
   </section>
 
   <!-- ===== イベント情報 =====
-       FIX_LIST A-2／D-1 対応。旧セクションを同じ位置で置き換えたもの。
-
        【重要】キャスト個人の写真・プロフィール、および席に着いている写真は掲載しない。
                入管審査に関わるため、写真を戻す場合は必ず先方確認を取ること。
 
-       【毎月の差し替え手順】
-        1. Canva等で作った告知画像を、幅800pxを目安に書き出す（縦横比は自由。
-           画像は切り抜かず全体が表示されるので、チラシをそのまま使ってよい）
-        2. images/event/ に保存する（例：images/event/2026-10-halloween.jpg）
-        3. 下の <article class="ev"> ブロックの ①img src ②img alt ③width/height
-           ④time datetime ⑤日付テキスト ⑥曜日 ⑦タイトル ⑧説明文 を書き換える
-           （複数日開催のときは <span class="ev__day"> の行を必要な日数ぶん複製する。
-            1日だけのときは1行に減らす）
-        4. 掲載が終わったイベントは <article> ごと削除する
-        5. 件数は1〜3件が目安（PCで最大3列、スマホで縦1列に並ぶ）
-        6. 画像が未入稿のときは images/event/placeholder.svg を指定しておくと
-           「画像準備中」の枠が表示される -->
-  <section class="sec" id="event" style="padding-bottom:120px">
+       【2026-09-08 変更】先方確認により、イベント告知はサイトに毎月掲載せず
+       TikTok・Instagram に一本化する方針へ変更した。個別イベントのカード
+       （2026-09 十五夜お月見）と毎月の差し替え手順は削除済み。
+       このセクションはナビの「イベント」から来た人を空振りさせない受け皿として残し、
+       すぐ下のSNS欄へ送る役割だけを持つ。
+       サイトへの個別掲載を再開する場合は、コミット 9207a54 時点の
+       .events / .ev のCSSとカードのHTML、および images/event/ を参照する。 -->
+  <section class="sec" id="event" style="padding-bottom:56px">
     <div class="wrap">
-      <div class="sec__head">
+      <div class="sec__head" style="margin-bottom:0">
         <span class="en">Event</span>
         <h2 class="ttl">イベント情報</h2>
-        <p class="lead"><span class="ph">季節の催しや</span><span class="ph">パーティーのご案内を</span><span class="ph">こちらに掲載します。</span></p>
+        <p class="lead"><span class="ph">季節の催しや</span><span class="ph">パーティーのご案内は、</span><span class="ph">SNSにてお知らせしています。</span></p>
       </div>
-
-      <div class="events">
-        <article class="ev">
-          <div class="ev__img"><img src="images/event/2026-09-tsukimi.jpg" alt="十五夜お月見 バニーガールイベントの告知画像" loading="lazy" width="800" height="1200"></div>
-          <div class="ev__body">
-            <p class="ev__date">
-              <span class="ev__day"><time datetime="2026-09-23">2026.09.23</time><span class="ev__dow">水</span></span>
-              <span class="ev__day"><time datetime="2026-09-24">2026.09.24</time><span class="ev__dow">木</span></span>
-            </p>
-            <h3 class="ev__ttl">十五夜お月見<br>バニーガールイベント</h3>
-            <p class="ev__txt"><span class="ph">お得な前売りチケットを</span><span class="ph">販売中です。</span><br><span class="ph">90分 5,000円</span><br><span class="ph">welcome生ビール・</span><span class="ph">お月見だんご付き</span><br><span class="ph">※指名料・キャストドリンクは</span><span class="ph">別途かかります</span></p>
-          </div>
-        </article>
-      </div>
-
-      <p class="events__note">イベントは月ごとに更新します。最新のご案内は Instagram・TikTok でもお知らせしています。</p>
     </div>
   </section>
 
@@ -970,7 +928,9 @@ a{color:inherit}
         <div><dt>電話</dt><dd><a href="tel:0265967880">0265-96-7880</a></dd></div>
         <div><dt>席数</dt><dd>最大80名・団体様歓迎</dd></div>
         <div><dt>支払い</dt><dd>現金・各種クレジットカード</dd></div>
-        <div><dt>駐車場</dt><dd>専用駐車場はございません。<br>お帰りはタクシー・運転代行をご利用ください。</dd></div>
+        <!-- 【2026-09-08 修正】先方確認により、店舗周りに線引きされた専用スペース5台分あり。
+             詳細な位置案内・地図・写真は載せない方針（来店すれば分かるため）。 -->
+        <div><dt>駐車場</dt><dd>専用駐車場 5台</dd></div>
       </dl>
     </div>
   </section>
