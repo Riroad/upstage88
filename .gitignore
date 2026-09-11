@@ -5,8 +5,9 @@
 !/.gitignore
 !/index.html
 !/images/
-# robots.txt は github.io のサブパスでは効かないため公開対象外。
-# 代わりに index.html の noindex メタタグで検索避けしている。
+# 2026-09-11 独自ドメイン upstage88.com（Netlify）へ移行。ドメイン直下に置けるので公開対象に追加
+!/robots.txt
+!/sitemap.xml
 
 /images/*
 !/images/hibiscus.svg

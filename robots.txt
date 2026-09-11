@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# 公開するのは index.html と使用画像だけ（.gitignore のホワイトリストで制御）。
+# 提案用モックアップ・旧マルチページ版はそもそもサーバーに上げないので Disallow 不要。
+
+Sitemap: https://upstage88.com/sitemap.xml

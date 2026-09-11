@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- サイトは1ページ完結LP（index.html）なので、申告するURLはトップ1本だけ。
+     アンカー（#about など）はページ内リンクなので sitemap には載せない。
+     ページを追加・削除したらこのファイルも必ず更新すること。 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://upstage88.com/</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
